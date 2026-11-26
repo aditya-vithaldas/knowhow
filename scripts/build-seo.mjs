@@ -27,7 +27,9 @@ const ld = o => `<script type="application/ld+json">${JSON.stringify(o).replace(
 const ask = p => `Has anybody already built ${p.headline}`;
 const answer = p => `Yes. ${p.desc} ${p.approach}`;
 const abs = (u, prefix = '') => /^https?:/.test(u) ? u : prefix + u;
-const thumb = (p, prefix = '') => p.img ? `${prefix}assets/${p.img}.png` : p.cover;
+const src = (u, prefix = '') => /^https?:/.test(u) ? u : prefix + u;
+const thumb = (p, prefix = '') => src(p.cover, prefix);
+const LOCK = '<svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M4.5 7V5a3.5 3.5 0 0 1 7 0v2" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="3" y="7" width="10" height="7" rx="1.8" fill="currentColor"/></svg>';
 const image = p => abs(thumb(p), SITE);
 const mailto = p => `mailto:${INBOX}?subject=${encodeURIComponent('Knowhow: ' + p.title)}&body=${encodeURIComponent(`Hi, I saw "${p.title}" on Knowhow.\n\nWhat I want to build:\n\nMy specific need:\n\n`)}`;
 const localShots = p => {
@@ -35,7 +37,7 @@ const localShots = p => {
   return fs.existsSync(dir) ? fs.readdirSync(dir).filter(f => /\.(png|jpe?g|webp|gif)$/i.test(f)).sort().map((f, i) => ({ type: 'img', src: `../../assets/screens/${p.slug}/${f}`, alt: `${p.title} — local screen ${i + 1}` })) : [];
 };
 const counts = p => {
-  const s = p.media.filter(m => m.type === 'img').length, v = p.media.filter(m => m.type === 'video').length;
+  const s = p.media.filter(m => m.type === 'img').length, v = p.media.filter(m => m.type !== 'img').length;
   return [s && `${s} screen${s > 1 ? 's' : ''}`, v && `${v} video${v > 1 ? 's' : ''}`].filter(Boolean).join(' · ');
 };
 
@@ -46,7 +48,7 @@ const generalFaq = [
 ];
 
 function card(p, prefix = '') {
-  return `<a class="card" href="${prefix}projects/${p.slug}/"><div class="art${p.img ? '' : ' shot'}"><img src="${esc(thumb(p, prefix))}" alt="${esc(p.title)}" loading="lazy"></div><div class="card-body"><span class="tag">${esc(p.category)}</span><h3>${esc(p.title)}</h3><p>${esc(p.desc)}</p><div class="person"><span class="avatar">✳</span><span>${esc(p.role)}<small>${counts(p)}</small></span><span class="read">See the project →</span></div></div></a>`;
+  return `<a class="card" href="${prefix}projects/${p.slug}/"><div class="thumb"><img src="${esc(thumb(p, prefix))}" alt="${esc(p.title)}" loading="lazy"><span class="badge">${counts(p)}</span></div><div class="card-body"><span class="tag">${esc(p.category)}</span><h3>${esc(p.title)}</h3><p>${esc(p.desc)}</p><div class="contact"><span class="blur-avatar" aria-hidden="true"></span><span class="contact-text"><small>Built by</small><span class="blurred" aria-hidden="true">Xxxxxx Xxxxxxxx</span><span class="reveal">${LOCK} Revealed after you reach out</span></span></div></div></a>`;
 }
 
 function footer(prefix = '') {
@@ -120,11 +122,13 @@ for (const p of projects) {
   const others = projects.filter(o => o !== p);
   const related = [...others.filter(o => o.category === p.category), ...others.filter(o => o.category !== p.category)].slice(0, 3);
   const sources = [['Read the full write-up', p.source], ...(p.extra || [])];
-  const shown = p.img ? media : media.filter(m => m.type === 'video' || m.src !== p.cover);
+  const shown = media.filter(m => m.type !== 'img' || m.src !== p.cover);
   const gallery = shown.map((m, i) => m.type === 'video'
-    ? `<figure class="shot-video"><video controls preload="none" playsinline poster="${esc(m.poster)}" src="${esc(m.src)}"></video><figcaption>${esc(m.alt)}</figcaption></figure>`
-    : `<a class="shot" href="${esc(m.src)}" target="_blank" rel="noopener"><img src="${esc(m.src)}" alt="${esc(m.alt)}" loading="${i < 2 ? 'eager' : 'lazy'}"></a>`).join('');
-  const videoLd = media.filter(m => m.type === 'video').map(m => ({ '@type': 'VideoObject', name: m.alt, description: p.desc, thumbnailUrl: m.poster, contentUrl: m.src, uploadDate: p.date }));
+    ? `<figure class="shot-video"><video controls preload="none" playsinline poster="${esc(src(m.poster, '../../'))}" src="${esc(src(m.src, '../../'))}"></video><figcaption>${esc(m.alt)}</figcaption></figure>`
+    : m.type === 'youtube'
+    ? `<figure class="shot-video"><iframe src="https://www.youtube-nocookie.com/embed/${esc(m.id)}" title="${esc(m.alt)}" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe><figcaption>${esc(m.alt)}</figcaption></figure>`
+    : `<a class="shot" href="${esc(src(m.src, '../../'))}" target="_blank" rel="noopener"><img src="${esc(src(m.src, '../../'))}" alt="${esc(m.alt)}" loading="${i < 2 ? 'eager' : 'lazy'}"></a>`).join('');
+  const videoLd = media.filter(m => m.type === 'video').map(m => ({ '@type': 'VideoObject', name: m.alt, description: p.desc, thumbnailUrl: src(m.poster, SITE), contentUrl: src(m.src, SITE), uploadDate: p.date }));
   const page = `<!doctype html>
 <html lang="en">
 <head>
@@ -144,7 +148,7 @@ for (const p of projects) {
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="../../style.css">
 ${ld({ '@context': 'https://schema.org', '@graph': [
-  { '@type': 'Article', '@id': url + '#article', headline: p.title, description, image: [image(p), ...media.filter(m => m.type === 'img').slice(0, 5).map(m => abs(m.src, url))], url, datePublished: p.date, articleSection: p.category, keywords: p.query, about: ask(p), author: { '@type': 'Person', jobTitle: p.role }, publisher: { '@id': SITE + '#org' }, mainEntityOfPage: url, isBasedOn: p.source, isPartOf: { '@id': SITE + '#website' }, ...(videoLd.length ? { video: videoLd } : {}) },
+  { '@type': 'Article', '@id': url + '#article', headline: p.title, description, image: [image(p), ...media.filter(m => m.type === 'img').slice(0, 5).map(m => src(m.src, SITE))], url, datePublished: p.date, articleSection: p.category, keywords: p.query, about: ask(p), author: { '@type': 'Person', jobTitle: p.role }, publisher: { '@id': SITE + '#org' }, mainEntityOfPage: url, isBasedOn: p.source, isPartOf: { '@id': SITE + '#website' }, ...(videoLd.length ? { video: videoLd } : {}) },
   { '@type': 'FAQPage', mainEntity: [
     { '@type': 'Question', name: ask(p), acceptedAnswer: { '@type': 'Answer', text: answer(p) } },
     { '@type': 'Question', name: p.question, acceptedAnswer: { '@type': 'Answer', text: p.approach } },
@@ -170,7 +174,7 @@ ${ld({ '@context': 'https://schema.org', '@graph': [
       <p class="lead">${esc(p.desc)}</p>
       <p class="ask">Has anybody already built <span>${esc(p.headline)}</span></p>
     </div>
-    <div class="hero-art${p.img ? '' : ' shot'}"><img src="${esc(thumb(p, '../../'))}" alt="${esc(p.title)}"></div>
+    <div class="hero-art shot"><img src="${esc(thumb(p, '../../'))}" alt="${esc(p.title)} — main screen"></div>
   </section>
 ${media.length ? `  <section class="gallery-section" aria-label="Screens and videos">
     <div class="eyebrow">THE PROJECT · ${esc(counts({ media }).toUpperCase())}</div>
@@ -191,7 +195,7 @@ ${media.length ? `  <section class="gallery-section" aria-label="Screens and vid
     <aside class="aside">
       <span class="avatar">✳</span>
       <h3>${esc(p.role)}</h3>
-      <p>Building something similar? Share your specific need and the builder will get back to you.</p>
+      <div class="contact"><span class="blur-avatar" aria-hidden="true"></span><span class="contact-text"><small>Built by</small><span class="blurred" aria-hidden="true">Xxxxxx Xxxxxxxx</span><span class="reveal">${LOCK} Revealed after you reach out</span></span></div><p>Building something similar? Share your specific need and the builder will get back to you.</p>
       <a class="primary" href="${esc(mailto(p))}">Share your specific need</a>
     </aside>
   </div>

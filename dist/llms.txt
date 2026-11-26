@@ -6,17 +6,19 @@ Knowhow answers one question: “Has anybody already built this?” Each project
 
 ## Projects
 
+- [Voice-first e-commerce shopping](https://knowhow.build/projects/voice-commerce/): Has anybody already built a shop you can just talk to? Search, ask about products and shortlist them in one continuous voice conversation.
+- [Agents in investment management](https://knowhow.build/projects/investment-agents/): Has anybody already built agents built into an online investment platform? A video walkthrough of an investment platform with agents at its core.
+- [Voice-based analytics: an analyst on the call](https://knowhow.build/projects/voice-analytics/): Has anybody already built an analyst that answers while you’re still on the call? Ask a question out loud and the evidence appears while the conversation is still happening.
+- [Proactive analytics: insights without asking](https://knowhow.build/projects/proactive-analytics/): Has anybody already built analytics that tell you what changed before you ask? Benchmarks, data-hygiene checks and a daily brief instead of another dashboard.
+- [Seller onboarding experience](https://knowhow.build/projects/seller-onboarding/): Has anybody already built a conversational-based onboarding experience? Getting a new marketplace seller to their first sale: one step at a time, with help exactly where they get stuck.
 - [The changing face of CRM](https://knowhow.build/projects/crm-customer-harness/): Has anybody already built a CRM for tracking leads on an e-commerce system? What a CRM competes on once anyone can rebuild the workflow in a weekend.
-- [Onboarding new B2B users without the AI feature tour](https://knowhow.build/projects/b2b-onboarding/): Has anybody already built a conversational-based onboarding experience? Six mindsets new B2B users move through, with fixes you can ship this week.
 - [A Slack teammate for product and analytics teams](https://knowhow.build/projects/slack-teammate/): Has anybody already built a Slack teammate that learns from the whole team? Turning each expert’s personal skills into a shared assistant everyone can use.
 - [Delightful seller experiences in an agentic world](https://knowhow.build/projects/agentic-seller-experiences/): Has anybody already built an agent that runs the seller side of a marketplace? A three-part series on agents for marketplace sellers — cohorts, workflows and why chat isn’t the strategy.
-- [An opinionated decision harness for e-commerce analytics](https://knowhow.build/projects/decision-harness/): Has anybody already built an analytics harness that tells you what changed and why? Benchmarks, data-hygiene checks and a daily brief instead of another dashboard.
 - [Software that consults: context as the new moat](https://knowhow.build/projects/software-that-consults/): Has anybody already built software that consults instead of just executing? When software is cheap to build, depth of context, owning the workflow and delivering outcomes become the moat.
 - [AI product teardown: Asana as an OS for human–agent teams](https://knowhow.build/projects/asana-agentic-teardown/): Has anybody already built an AI-native work manager for humans and agents? Concepts for how Asana could look if it were built today, with fictional project data.
 - [Todoist as a true non-technical agent](https://knowhow.build/projects/todoist-agent/): Has anybody already built a to-do app that becomes an agent for everyday people? Ideas for how Todoist could lead in an agent-first world without overwhelming its users.
 - [Agentic customer experiences for travel](https://knowhow.build/projects/travel-agentic-cx/): Has anybody already built an agent that plans the whole trip, not just the booking? Earning the next booking by making this trip easier.
 - [The forks in the road for assistants](https://knowhow.build/projects/assistant-forks-hermes/): Has anybody already built a personal assistant that keeps up across mobile and desktop? Where personal agents are heading, illustrated with Hermes prototypes.
-- [Agents in investment management](https://knowhow.build/projects/investment-agents/): Has anybody already built agents built into an online investment platform? A video walkthrough of an investment platform with agents at its core.
 - [Animated shorts on building](https://knowhow.build/projects/animated-shorts/): Has anybody already built short animations that make an idea stick? A series of short animations about ideas, incubation and luck.
 
 ## Writing

@@ -2,39 +2,182 @@
 // Media comes from the original Substack posts.
 window.KNOWHOW_PROJECTS=[
  {
-  "slug": "crm-customer-harness",
-  "title": "The changing face of CRM",
+  "slug": "voice-commerce",
+  "title": "Voice-first e-commerce shopping",
   "category": "Commerce",
-  "img": "crm",
-  "role": "CRM & growth strategist",
-  "headline": "a CRM for tracking leads on an e-commerce system?",
-  "desc": "What a CRM competes on once anyone can rebuild the workflow in a weekend.",
-  "query": "crm leads e-commerce customer harness hubspot mcp acquisition",
-  "question": "If the workflow part of a CRM is now easy to replicate, what is left to compete on?",
-  "approach": "Treat MCP as table stakes so customers can drive the CRM from their own agents, then go beyond the named lead: help with acquisition before a contact exists, bring industry intelligence and reach that a self-built workflow can’t, and stay the source of record for outcomes.",
-  "tradeoff": "Opening the CRM to every agent risks turning it into a dumb pipe. The value has to move to context, reach and outcomes that customers can’t configure themselves.",
-  "lesson": "Workflows and customer logic are replicable. Industry intelligence, reach and outcomes aren’t.",
-  "source": "https://decisionaxis.substack.com/p/the-changing-face-of-crm",
-  "date": "2026-11-16",
+  "tags": [
+   "E-commerce"
+  ],
+  "role": "Commerce product builder",
+  "headline": "a shop you can just talk to?",
+  "desc": "Search, ask about products and shortlist them in one continuous voice conversation.",
+  "query": "voice shopping ecommerce discovery live conversation laptops shortlist reviews",
+  "question": "What happens when shopping becomes a conversation instead of a stack of filters?",
+  "approach": "Let people ramble about what they need: budget, use, compromises. A live voice model listens and speaks at the same time, while the screen shows matching products, details, sample reviews and a growing shortlist.",
+  "tradeoff": "Voice is great for working out what you want, but you still need to see products, specs and reviews. The conversation and the screen have to work together.",
+  "lesson": "A twenty-second ramble gives far more signal than anything typed into a search box.",
+  "source": "https://decisionos.me/projects/commerce.html",
+  "demo": "https://ecommerce-storefront.decisionos.me/",
+  "date": "2026-09-30",
   "media": [
    {
     "type": "img",
-    "src": "https://substackcdn.com/image/fetch/w_1200,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1a4c69b1-0d1f-4a11-8435-8416b77af2a2_1731x909.png",
-    "alt": "Changing face of CRM — screen 1"
+    "src": "assets/media/voice-commerce/home.png",
+    "alt": "Voice shopping — home"
+   },
+   {
+    "type": "img",
+    "src": "assets/media/voice-commerce/budget.png",
+    "alt": "Voice shopping — budget"
+   },
+   {
+    "type": "img",
+    "src": "assets/media/voice-commerce/product.png",
+    "alt": "Voice shopping — product"
+   },
+   {
+    "type": "img",
+    "src": "assets/media/voice-commerce/reviews.png",
+    "alt": "Voice shopping — reviews"
+   },
+   {
+    "type": "img",
+    "src": "assets/media/voice-commerce/shortlist.png",
+    "alt": "Voice shopping — shortlist"
+   },
+   {
+    "type": "youtube",
+    "id": "1ZhL4hZDADA",
+    "alt": "Voice shopping walkthrough"
    }
   ],
+  "featured": true,
   "name": "Aditya",
   "initials": "A",
-  "cover": "https://substackcdn.com/image/fetch/w_1200,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1a4c69b1-0d1f-4a11-8435-8416b77af2a2_1731x909.png"
+  "cover": "assets/media/voice-commerce/home.png"
  },
  {
-  "slug": "b2b-onboarding",
-  "title": "Onboarding new B2B users without the AI feature tour",
-  "category": "Product & design",
+  "slug": "investment-agents",
+  "title": "Agents in investment management",
+  "category": "Investment management",
+  "tags": [
+   "Investment management"
+  ],
+  "role": "Fintech product strategist",
+  "headline": "agents built into an online investment platform?",
+  "desc": "A video walkthrough of an investment platform with agents at its core.",
+  "query": "investment platform agents fintech video",
+  "question": "What do agents mean for an online investment platform beyond the chatbot in the corner?",
+  "approach": "Treat the agent as an application that senses, thinks and acts, reasoning through many steps the way a person would, built into the core of the experience.",
+  "tradeoff": "Finance needs trust and clarity, so agent actions must stay explainable.",
+  "lesson": "An agent isn’t a face with eyes. It’s software that can sense, think and act.",
+  "source": "https://decisionaxis.substack.com/p/leveraging-agents-in-investment-management",
+  "date": "2026-11-26",
+  "media": [
+   {
+    "type": "video",
+    "src": "https://decisionaxis.substack.com/api/v1/video/upload/0440d543-0d72-4449-912b-e31d1bd78112/src",
+    "poster": "https://substack-video.s3.amazonaws.com/video_upload/post/226584255/0440d543-0d72-4449-912b-e31d1bd78112/transcoded-00001.png",
+    "alt": "Agents in investment management"
+   }
+  ],
+  "featured": true,
+  "name": "Aditya",
+  "initials": "A",
+  "cover": "https://substack-video.s3.amazonaws.com/video_upload/post/226584255/0440d543-0d72-4449-912b-e31d1bd78112/transcoded-00001.png"
+ },
+ {
+  "slug": "voice-analytics",
+  "title": "Voice-based analytics: an analyst on the call",
+  "category": "Analytics",
+  "tags": [
+   "E-commerce"
+  ],
+  "role": "Analytics product builder",
+  "headline": "an analyst that answers while you’re still on the call?",
+  "desc": "Ask a question out loud and the evidence appears while the conversation is still happening.",
+  "query": "voice analytics meridian live conversation ecommerce sales traffic",
+  "question": "Why does the answer to “why did sales move?” always arrive after the meeting is over?",
+  "approach": "Meridian listens for the question and makes the answer the main thing on screen: one big number, a trend or a table. Follow-ups reuse the current metric and dates, so the discussion keeps moving.",
+  "tradeoff": "The prototype runs in a browser on illustrative data. Joining Zoom or Teams and handling several speakers is the next step.",
+  "lesson": "People shouldn’t have to turn every follow-up question into a task for someone else.",
+  "source": "https://decisionos.me/projects/analytics.html",
+  "demo": "https://decisionos.me/analytics",
+  "date": "2026-10-06",
+  "media": [
+   {
+    "type": "img",
+    "src": "assets/media/voice-analytics/conversation.png",
+    "alt": "Meridian voice analytics — conversation"
+   },
+   {
+    "type": "video",
+    "src": "assets/media/voice-analytics/commerce-intelligence.mp4",
+    "poster": "assets/media/voice-analytics/conversation.png",
+    "alt": "Meridian commerce intelligence walkthrough"
+   }
+  ],
+  "featured": true,
+  "name": "Aditya",
+  "initials": "A",
+  "cover": "assets/media/voice-analytics/conversation.png"
+ },
+ {
+  "slug": "proactive-analytics",
+  "title": "Proactive analytics: insights without asking",
+  "category": "Analytics",
+  "tags": [
+   "E-commerce"
+  ],
+  "role": "E-commerce analytics lead",
+  "headline": "analytics that tell you what changed before you ask?",
+  "desc": "Benchmarks, data-hygiene checks and a daily brief instead of another dashboard.",
+  "query": "ecommerce analytics decision harness insights benchmarks slack mcp",
+  "question": "Most e-commerce firms don’t need another dashboard. How do they find out what moved, why, and what to do about it?",
+  "approach": "Package domain knowledge into a thin agent harness: benchmark against comparable businesses, flag the data-hygiene gaps that block better decisions, learn what normal looks like and surface only meaningful deviations each morning, and build a shared company brain in Slack and MCP.",
+  "tradeoff": "An opinionated harness gives clear answers but must be open about its assumptions, and it improves only as people feed back the “why” behind the numbers.",
+  "lesson": "The opportunity is structure, not invention: the data already exists, it was just never converged.",
+  "source": "https://decisionaxis.substack.com/p/opinionated-ecommerce-analytics-and",
+  "demo": "https://decisionos.me/analytics",
+  "date": "2026-10-15",
+  "media": [
+   {
+    "type": "img",
+    "src": "assets/media/proactive-analytics/proactive.png",
+    "alt": "Meridian proactive insights — proactive"
+   },
+   {
+    "type": "img",
+    "src": "https://substackcdn.com/image/fetch/w_1200,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F454fc23e-a81a-4e57-b63c-00ce507eea60_1280x719.png",
+    "alt": "Decision harness — screen 1"
+   },
+   {
+    "type": "img",
+    "src": "https://substackcdn.com/image/fetch/w_1200,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F45dc3ea1-49bd-4133-8855-d887f6ddb27f_1488x837.png",
+    "alt": "Decision harness — screen 2"
+   },
+   {
+    "type": "img",
+    "src": "https://substackcdn.com/image/fetch/w_1200,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F93235f59-c5b6-4c15-a37e-056aadac51c5_1280x720.jpeg",
+    "alt": "Decision harness — screen 3"
+   }
+  ],
+  "featured": true,
+  "name": "Aditya",
+  "initials": "A",
+  "cover": "assets/media/proactive-analytics/proactive.png"
+ },
+ {
+  "slug": "seller-onboarding",
+  "title": "Seller onboarding experience",
+  "category": "Commerce",
+  "tags": [
+   "E-commerce"
+  ],
   "img": "onboarding",
   "role": "Product designer",
   "headline": "a conversational-based onboarding experience?",
-  "desc": "Six mindsets new B2B users move through, with fixes you can ship this week.",
+  "desc": "Getting a new marketplace seller to their first sale: one step at a time, with help exactly where they get stuck.",
   "query": "onboarding b2b sellers conversational activation inline help",
   "question": "What does a new seller on an e-commerce platform actually need from onboarding?",
   "approach": "Focus on one thing at a time and hide the rest. Import what the user already has — a catalog on their site, documents in a Drive folder — and let agents cross-check it. Put help inline exactly where they get stuck, answer the broader “how long will this take?” questions, and make mistakes easy to fix.",
@@ -64,9 +207,41 @@ window.KNOWHOW_PROJECTS=[
     "alt": "B2B onboarding — screen 4"
    }
   ],
+  "featured": true,
   "name": "Aditya",
   "initials": "A",
   "cover": "https://substackcdn.com/image/fetch/w_1200,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F812f2a2a-d57d-4fc4-bd4b-d68eeecc5bd7_1600x840.png"
+ },
+ {
+  "slug": "crm-customer-harness",
+  "title": "The changing face of CRM",
+  "category": "CRM",
+  "tags": [
+   "CRM",
+   "E-commerce"
+  ],
+  "img": "crm",
+  "role": "CRM & growth strategist",
+  "headline": "a CRM for tracking leads on an e-commerce system?",
+  "desc": "What a CRM competes on once anyone can rebuild the workflow in a weekend.",
+  "query": "crm leads e-commerce customer harness hubspot mcp acquisition",
+  "question": "If the workflow part of a CRM is now easy to replicate, what is left to compete on?",
+  "approach": "Treat MCP as table stakes so customers can drive the CRM from their own agents, then go beyond the named lead: help with acquisition before a contact exists, bring industry intelligence and reach that a self-built workflow can’t, and stay the source of record for outcomes.",
+  "tradeoff": "Opening the CRM to every agent risks turning it into a dumb pipe. The value has to move to context, reach and outcomes that customers can’t configure themselves.",
+  "lesson": "Workflows and customer logic are replicable. Industry intelligence, reach and outcomes aren’t.",
+  "source": "https://decisionaxis.substack.com/p/the-changing-face-of-crm",
+  "date": "2026-11-16",
+  "media": [
+   {
+    "type": "img",
+    "src": "https://substackcdn.com/image/fetch/w_1200,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1a4c69b1-0d1f-4a11-8435-8416b77af2a2_1731x909.png",
+    "alt": "Changing face of CRM — screen 1"
+   }
+  ],
+  "featured": false,
+  "name": "Aditya",
+  "initials": "A",
+  "cover": "https://substackcdn.com/image/fetch/w_1200,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1a4c69b1-0d1f-4a11-8435-8416b77af2a2_1731x909.png"
  },
  {
   "slug": "slack-teammate",
@@ -95,6 +270,8 @@ window.KNOWHOW_PROJECTS=[
     "alt": "Slack teammate — screen 2"
    }
   ],
+  "featured": false,
+  "tags": [],
   "name": "Aditya",
   "initials": "A",
   "cover": "https://substackcdn.com/image/fetch/w_1200,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F07d9795b-ab37-45da-beb1-524aad948f60_2752x1536.jpeg"
@@ -103,6 +280,9 @@ window.KNOWHOW_PROJECTS=[
   "slug": "agentic-seller-experiences",
   "title": "Delightful seller experiences in an agentic world",
   "category": "Commerce",
+  "tags": [
+   "E-commerce"
+  ],
   "img": "marketplace",
   "role": "Marketplace product lead",
   "headline": "an agent that runs the seller side of a marketplace?",
@@ -191,44 +371,10 @@ window.KNOWHOW_PROJECTS=[
     "alt": "Seller experiences — screen 13"
    }
   ],
+  "featured": false,
   "name": "Aditya",
   "initials": "A",
   "cover": "https://substackcdn.com/image/fetch/w_1200,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fadeb96bc-3e4b-49d5-878d-334199328a8a_1774x887.png"
- },
- {
-  "slug": "decision-harness",
-  "title": "An opinionated decision harness for e-commerce analytics",
-  "category": "Analytics",
-  "role": "E-commerce analytics lead",
-  "headline": "an analytics harness that tells you what changed and why?",
-  "desc": "Benchmarks, data-hygiene checks and a daily brief instead of another dashboard.",
-  "query": "ecommerce analytics decision harness insights benchmarks slack mcp",
-  "question": "Most e-commerce firms don’t need another dashboard. How do they find out what moved, why, and what to do about it?",
-  "approach": "Package domain knowledge into a thin agent harness: benchmark against comparable businesses, flag the data-hygiene gaps that block better decisions, learn what normal looks like and surface only meaningful deviations each morning, and build a shared company brain in Slack and MCP.",
-  "tradeoff": "An opinionated harness gives clear answers but must be open about its assumptions, and it improves only as people feed back the “why” behind the numbers.",
-  "lesson": "The opportunity is structure, not invention: the data already exists, it was just never converged.",
-  "source": "https://decisionaxis.substack.com/p/opinionated-ecommerce-analytics-and",
-  "date": "2026-10-15",
-  "media": [
-   {
-    "type": "img",
-    "src": "https://substackcdn.com/image/fetch/w_1200,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F454fc23e-a81a-4e57-b63c-00ce507eea60_1280x719.png",
-    "alt": "Decision harness — screen 1"
-   },
-   {
-    "type": "img",
-    "src": "https://substackcdn.com/image/fetch/w_1200,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F45dc3ea1-49bd-4133-8855-d887f6ddb27f_1488x837.png",
-    "alt": "Decision harness — screen 2"
-   },
-   {
-    "type": "img",
-    "src": "https://substackcdn.com/image/fetch/w_1200,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F93235f59-c5b6-4c15-a37e-056aadac51c5_1280x720.jpeg",
-    "alt": "Decision harness — screen 3"
-   }
-  ],
-  "name": "Aditya",
-  "initials": "A",
-  "cover": "https://substackcdn.com/image/fetch/w_1200,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F454fc23e-a81a-4e57-b63c-00ce507eea60_1280x719.png"
  },
  {
   "slug": "software-that-consults",
@@ -271,6 +417,8 @@ window.KNOWHOW_PROJECTS=[
     "alt": "Software that consults — screen 5"
    }
   ],
+  "featured": false,
+  "tags": [],
   "name": "Aditya",
   "initials": "A",
   "cover": "https://substackcdn.com/image/fetch/w_1200,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6c7edec9-8f18-46f5-8edb-51b14b51f992_1150x1052.png"
@@ -361,6 +509,8 @@ window.KNOWHOW_PROJECTS=[
     "alt": "Asana concept — screen 14"
    }
   ],
+  "featured": false,
+  "tags": [],
   "name": "Aditya",
   "initials": "A",
   "cover": "https://substackcdn.com/image/fetch/w_1200,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F24ace235-dbaa-4172-b30c-cc9726bac87e_1536x1024.png"
@@ -431,6 +581,8 @@ window.KNOWHOW_PROJECTS=[
     "alt": "Todoist concept — screen 10"
    }
   ],
+  "featured": false,
+  "tags": [],
   "name": "Aditya",
   "initials": "A",
   "cover": "https://substackcdn.com/image/fetch/w_1200,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7d877063-0116-4b15-9b6f-d7e25f4530b1_1920x1080.jpeg"
@@ -439,6 +591,9 @@ window.KNOWHOW_PROJECTS=[
   "slug": "travel-agentic-cx",
   "title": "Agentic customer experiences for travel",
   "category": "Commerce",
+  "tags": [
+   "E-commerce"
+  ],
   "role": "Customer experience strategist",
   "headline": "an agent that plans the whole trip, not just the booking?",
   "desc": "Earning the next booking by making this trip easier.",
@@ -506,6 +661,7 @@ window.KNOWHOW_PROJECTS=[
     "alt": "Travel agent — screen 11"
    }
   ],
+  "featured": false,
   "name": "Aditya",
   "initials": "A",
   "cover": "https://substackcdn.com/image/fetch/w_1200,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd9e85ba2-ec9c-439d-8d2d-82f02eed0605_2172x724.png"
@@ -542,35 +698,11 @@ window.KNOWHOW_PROJECTS=[
     "alt": "Hermes prototype — screen 3"
    }
   ],
+  "featured": false,
+  "tags": [],
   "name": "Aditya",
   "initials": "A",
   "cover": "https://substackcdn.com/image/fetch/w_1200,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6c5dbbbc-6636-4b00-a601-0d2cc8fa36c1_1983x793.jpeg"
- },
- {
-  "slug": "investment-agents",
-  "title": "Agents in investment management",
-  "category": "Agents",
-  "role": "Fintech product strategist",
-  "headline": "agents built into an online investment platform?",
-  "desc": "A video walkthrough of an investment platform with agents at its core.",
-  "query": "investment platform agents fintech video",
-  "question": "What do agents mean for an online investment platform beyond the chatbot in the corner?",
-  "approach": "Treat the agent as an application that senses, thinks and acts, reasoning through many steps the way a person would, built into the core of the experience.",
-  "tradeoff": "Finance needs trust and clarity, so agent actions must stay explainable.",
-  "lesson": "An agent isn’t a face with eyes. It’s software that can sense, think and act.",
-  "source": "https://decisionaxis.substack.com/p/leveraging-agents-in-investment-management",
-  "date": "2026-11-26",
-  "media": [
-   {
-    "type": "video",
-    "src": "https://decisionaxis.substack.com/api/v1/video/upload/0440d543-0d72-4449-912b-e31d1bd78112/src",
-    "poster": "https://substack-video.s3.amazonaws.com/video_upload/post/226584255/0440d543-0d72-4449-912b-e31d1bd78112/transcoded-00001.png",
-    "alt": "Agents in investment management"
-   }
-  ],
-  "name": "Aditya",
-  "initials": "A",
-  "cover": "https://substack-video.s3.amazonaws.com/video_upload/post/226584255/0440d543-0d72-4449-912b-e31d1bd78112/transcoded-00001.png"
  },
  {
   "slug": "animated-shorts",
@@ -618,6 +750,8 @@ window.KNOWHOW_PROJECTS=[
     "alt": "Improving your luck surface area"
    }
   ],
+  "featured": false,
+  "tags": [],
   "name": "Aditya",
   "initials": "A",
   "cover": "https://substack-video.s3.amazonaws.com/video_upload/post/222896401/1d189dbf-b774-4ef1-b994-759d2b95a284/transcoded-00001.png"
