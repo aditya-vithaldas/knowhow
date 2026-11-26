@@ -4,11 +4,12 @@ const $ = id => document.getElementById(id);
 let filter = 'All';
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const mail = (subject, body) => { location.href = `mailto:${INBOX}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`; };
+const mark = p => p.highlight && p.title.includes(p.highlight) ? esc(p.title).replace(esc(p.highlight), `<mark>${esc(p.highlight)}</mark>`) : esc(p.title);
 const LOCK = '<svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M4.5 7V5a3.5 3.5 0 0 1 7 0v2" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="3" y="7" width="10" height="7" rx="1.8" fill="currentColor"/></svg>';
 const counts = p => { const s = p.media.filter(m => m.type === 'img').length, v = p.media.filter(m => m.type !== 'img').length; return [s && `${s} screen${s > 1 ? 's' : ''}`, v && `${v} video${v > 1 ? 's' : ''}`].filter(Boolean).join(' · '); };
 
 function card(p) {
-  return `<a class="card c-${p.category.toLowerCase().split(' ')[0]}" href="projects/${p.slug}/"><div class="thumb"><img src="${esc(p.cover)}" alt="" loading="lazy"><span class="badge">${counts(p)}</span></div><div class="card-body"><span class="tag">${esc(p.category)}</span><h3>${esc(p.title)}</h3><p>${esc(p.desc)}</p><div class="contact"><span class="blur-avatar" aria-hidden="true"></span><span class="contact-text"><small>Built by</small><span class="blurred" aria-hidden="true">Xxxxxx Xxxxxxxx</span><span class="reveal">${LOCK} Revealed after you reach out</span></span></div><p class="hire">Hire the right expertise, not just anyone who can build.</p></div></a>`;
+  return `<a class="card c-${p.category.toLowerCase().split(' ')[0]}" href="projects/${p.slug}/"><div class="thumb"><img src="${esc(p.cover)}" alt="" loading="lazy"><span class="badge">${counts(p)}</span></div><div class="card-body"><span class="tag">${esc(p.category)}</span><h3>${mark(p)}</h3><p>${esc(p.desc)}</p><div class="contact"><span class="blur-avatar" aria-hidden="true"></span><span class="contact-text"><small>Built by</small><span class="blurred" aria-hidden="true">Xxxxxx Xxxxxxxx</span><span class="reveal">${LOCK} Revealed after you reach out</span></span></div></div></a>`;
 }
 
 function render() {

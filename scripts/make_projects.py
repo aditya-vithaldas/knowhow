@@ -200,6 +200,9 @@ projects = [p for p in projects if p["slug"] in PUBLISHED]
 HERO_ART = {"voice-commerce": "marketplace", "investment-agents": "subscriptions", "voice-analytics": "crm", "proactive-analytics": "knowledge", "voice-seller-onboarding": "onboarding"}
 for p in projects:
     p["img"] = HERO_ART.get(p["slug"])
+HIGHLIGHT = {'voice-commerce': 'Voice-first', 'investment-agents': 'investment management', 'voice-analytics': 'Voice-based analytics', 'proactive-analytics': 'Proactive analytics', 'voice-seller-onboarding': 'Voice-driven seller onboarding'}  # words marked in each card title
+for p in projects:
+    p["highlight"] = HIGHLIGHT.get(p["slug"], "")
 for p in projects:
     p["cover_i"], p["top"] = PICK.get(p["slug"], (0, [0, 1]))
     p["topic"] = TOPIC.get(p["slug"], p["title"].lower())

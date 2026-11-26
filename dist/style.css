@@ -326,3 +326,9 @@ a.hero-art{text-decoration:none}
 .hire.serif,.card .hire,.aside .hire{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-weight:400;color:var(--hl);letter-spacing:0}
 .card .hire{font-size:15px}
 .aside .hire{font-size:21px;line-height:1.3}
+
+/* Word highlights: the one place items differ */
+mark{background:linear-gradient(transparent 58%,var(--hl-soft) 58%);color:inherit;padding:0 1px}
+.card h3 mark,.step strong mark{background:linear-gradient(transparent 55%,#FFD9BC 55%)}
+.hire-once{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:22px;color:var(--hl);margin:-14px 0 18px}
+@media(max-width:800px){.hire-once{font-size:19px}}

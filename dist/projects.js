@@ -57,6 +57,7 @@ window.KNOWHOW_PROJECTS=[
   ],
   "featured": true,
   "img": "marketplace",
+  "highlight": "Voice-first",
   "cover_i": 0,
   "topic": "a voice-first e-commerce shopping experience",
   "name": "Aditya",
@@ -90,6 +91,7 @@ window.KNOWHOW_PROJECTS=[
   ],
   "featured": true,
   "img": "subscriptions",
+  "highlight": "investment management",
   "cover_i": 0,
   "top": [
    0
@@ -132,6 +134,7 @@ window.KNOWHOW_PROJECTS=[
   ],
   "featured": true,
   "img": "crm",
+  "highlight": "Voice-based analytics",
   "cover_i": 0,
   "top": [
    0,
@@ -184,6 +187,7 @@ window.KNOWHOW_PROJECTS=[
   ],
   "featured": true,
   "img": "knowledge",
+  "highlight": "Proactive analytics",
   "cover_i": 0,
   "top": [
    0,
@@ -237,6 +241,7 @@ window.KNOWHOW_PROJECTS=[
   ],
   "featured": true,
   "img": "onboarding",
+  "highlight": "Voice-driven seller onboarding",
   "cover_i": 0,
   "top": [
    0,
