@@ -333,3 +333,14 @@ mark{background:linear-gradient(transparent 58%,var(--hl-soft) 58%);color:inheri
 .hire-once{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:22px;color:var(--hl);margin:-14px 0 18px}
 @media(max-width:800px){.hire-once{font-size:19px}}
 @media(max-width:800px){.section-head .hire-once{display:block}}
+
+/* Share-your-need form */
+.need-dialog .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.need-form label{display:block;font-size:14px;font-weight:600;margin:14px 0 6px}
+.need-form input,.need-form textarea,.need-form select{display:block;width:100%;margin-top:6px;padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:var(--white);font-weight:400}
+.need-form textarea{min-height:110px;resize:vertical}
+.need-form .opt{font-weight:400;color:var(--muted)}
+.need-form .primary{margin-top:18px;width:100%}
+.need-about{margin:-4px 0 4px;font-size:14px}
+.need-status{font-size:14px;margin:12px 0 0;color:var(--muted)}
+.need-status[data-state=error]{color:#B3261E}

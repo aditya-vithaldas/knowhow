@@ -67,7 +67,7 @@ function footer(prefix = '') {
   const year = new Date().getFullYear();
   return `<footer class="site-footer">
   <div class="footer-grid">
-    <div class="footer-brand"><a class="brand" href="${prefix || './'}">knowhow<span>✳</span></a><p>A place for the thinking behind the doing.</p><button class="primary" data-need onclick="if(!window.needForm){location.href='${prefix}#need'}">Share your specific need</button></div>
+    <div class="footer-brand"><a class="brand" href="${prefix || './'}">knowhow<span>✳</span></a><p>A place for the thinking behind the doing.</p><button class="primary" data-need>Share your specific need</button></div>
     <div class="footer-projects"><h4>Projects</h4><ul>${projects.map(p => `<li><a href="${prefix}projects/${p.slug}/">${esc(p.title)}</a></li>`).join('')}</ul></div>
     <div><h4>Knowhow</h4><ul><li><a href="${prefix}design-standard/">Design standard</a></li>${WRITING.map(([n, u]) => `<li><a href="${u}" rel="me noopener">${n}</a></li>`).join('')}<li><a href="mailto:${INBOX}">${INBOX}</a></li></ul></div>
   </div>
@@ -121,8 +121,8 @@ home = replaceBlock(home, 'cards', projects.map(p => card(p)).join(''));
 home = replaceBlock(home, 'faq', '');
 home = replaceBlock(home, 'footer', footer());
 const ver = f => crypto.createHash('sha1').update(fs.readFileSync(path.join(DIST, f))).digest('hex').slice(0, 8);
-const V = { css: ver('style.css'), app: ver('app.js'), data: ver('projects.js') };
-home = home.replace(/href="style\.css(\?v=[^"]*)?"/, `href="style.css?v=${V.css}"`).replace(/src="app\.js(\?v=[^"]*)?"/, `src="app.js?v=${V.app}"`).replace(/src="projects\.js(\?v=[^"]*)?"/, `src="projects.js?v=${V.data}"`);
+const V = { css: ver('style.css'), app: ver('app.js'), data: ver('projects.js'), need: ver('need.js') };
+home = home.replace(/href="style\.css(\?v=[^"]*)?"/, `href="style.css?v=${V.css}"`).replace(/src="app\.js(\?v=[^"]*)?"/, `src="app.js?v=${V.app}"`).replace(/src="projects\.js(\?v=[^"]*)?"/, `src="projects.js?v=${V.data}"`).replace(/src="need\.js(\?v=[^"]*)?"/, `src="need.js?v=${V.need}"`);
 fs.writeFileSync(path.join(DIST, 'index.html'), home);
 
 // ---- Project pages
@@ -174,7 +174,7 @@ ${ld({ '@context': 'https://schema.org', '@graph': [
 <body>
 <header>
   <a class="brand" href="../../">knowhow<span>✳</span></a>
-  <a class="outline" href="${esc(mailto(p))}">Share your <i class="wide-only">specific </i>need <span>→</span></a>
+  <button class="outline" data-need data-project="${esc(p.title)}">Share your <i class="wide-only">specific </i>need <span>→</span></button>
 </header>
 <nav class="crumbs" aria-label="Breadcrumb"><a href="../../">All projects</a> / ${esc(p.category)}</nav>
 <main class="case c-${p.category.toLowerCase().split(' ')[0]}">
@@ -197,7 +197,7 @@ ${ld({ '@context': 'https://schema.org', '@graph': [
     <aside class="aside">
       <div class="contact"><span class="blur-avatar" aria-hidden="true"></span><span class="contact-text"><small>Built by</small><span class="blurred" aria-hidden="true">Xxxxxx Xxxxxxxx</span><span class="reveal">${LOCK} Revealed after you reach out</span></span></div>
       <p class="hire">Hire the right expertise, not just anyone who can build.</p>
-      <a class="primary" href="${esc(mailto(p))}">Share your specific need</a>
+      <button class="primary" data-need data-project="${esc(p.title)}">Share your specific need</button>
     </aside>
   </div>
   <section class="case-qa" aria-labelledby="qaTitle">
@@ -209,7 +209,8 @@ ${rest.length ? `  <section class="gallery-section" aria-label="More screens and
     <div class="gallery">${rest.map((m, i) => renderMedia(m, i + 2)).join('')}</div>
   </section>
 ` : ''}</main>
-${footer('../../').replace(/ data-need onclick="[^"]*"/, '').replace('<button class="primary">Share your specific need</button>', `<a class="primary" href="${esc(mailto(p))}">Share your specific need</a>`)}
+${footer('../../').replace(' data-need>', ` data-project="${esc(p.title)}" data-need>`)}
+<script src="../../need.js?v=${V.need}"></script>
 </body>
 </html>
 `;
