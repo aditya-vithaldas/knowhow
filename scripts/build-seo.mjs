@@ -8,6 +8,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
+import crypto from 'node:crypto';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DIST = path.join(ROOT, 'dist');
@@ -118,6 +119,9 @@ home = replaceBlock(home, 'head', homeHead);
 home = replaceBlock(home, 'cards', projects.map(p => card(p)).join(''));
 home = replaceBlock(home, 'faq', '');
 home = replaceBlock(home, 'footer', footer());
+const ver = f => crypto.createHash('sha1').update(fs.readFileSync(path.join(DIST, f))).digest('hex').slice(0, 8);
+const V = { css: ver('style.css'), app: ver('app.js'), data: ver('projects.js') };
+home = home.replace(/href="style\.css(\?v=[^"]*)?"/, `href="style.css?v=${V.css}"`).replace(/src="app\.js(\?v=[^"]*)?"/, `src="app.js?v=${V.app}"`).replace(/src="projects\.js(\?v=[^"]*)?"/, `src="projects.js?v=${V.data}"`);
 fs.writeFileSync(path.join(DIST, 'index.html'), home);
 
 // ---- Project pages
@@ -156,7 +160,7 @@ for (const p of projects) {
 <meta property="og:image" content="${esc(image(p))}">
 <meta property="article:published_time" content="${p.date}">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="../../style.css">
+<link rel="stylesheet" href="../../style.css?v=${V.css}">
 ${ld({ '@context': 'https://schema.org', '@graph': [
   { '@type': 'Article', '@id': url + '#article', headline: p.title, description, image: [image(p), ...media.filter(m => m.type === 'img').slice(0, 5).map(m => src(m.src, SITE))], url, datePublished: p.date, articleSection: p.category, keywords: p.query, about: ask(p), author: { '@type': 'Person', jobTitle: p.role }, publisher: { '@id': SITE + '#org' }, mainEntityOfPage: url, isBasedOn: p.source, isPartOf: { '@id': SITE + '#website' }, ...(videoLd.length ? { video: videoLd } : {}) },
   { '@type': 'FAQPage', mainEntity: qa(p).map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
