@@ -1,0 +1,17 @@
+# Knowhow
+
+> Before you build, see how others approached it: case studies for an e-commerce lead CRM, conversational onboarding, an AI knowledge base with sources, a maker marketplace and a subscription dashboard — and reach the person who built it.
+
+Knowhow answers one question: “Has anybody already built this?” Each case study explains the question, the approach, the tradeoff and the lesson. Builders’ names are shared after an inquiry; inquiries go to aditya@decisionos.me.
+
+## Case studies
+
+- [A CRM that follows the lead, not the spreadsheet](https://aditya-vithaldas.github.io/knowhow/projects/ecommerce-lead-crm/): Has anybody already built a CRM for tracking leads on an e-commerce system? Tracking e-commerce leads from first visit to first order.
+- [Onboarding that feels like a conversation](https://aditya-vithaldas.github.io/knowhow/projects/conversational-onboarding/): Has anybody already built a conversational-based onboarding experience? Replacing setup forms with a few friendly questions.
+- [A knowledge base that answers with sources](https://aditya-vithaldas.github.io/knowhow/projects/ai-knowledge-base-with-sources/): Has anybody already built an AI knowledge base that answers with sources? Turning scattered team knowledge into answers you can trust.
+- [A marketplace for independent makers](https://aditya-vithaldas.github.io/knowhow/projects/independent-maker-marketplace/): Has anybody already built a marketplace for independent makers? Connecting small makers with people who care about craft.
+- [A subscription dashboard people check on purpose](https://aditya-vithaldas.github.io/knowhow/projects/subscription-dashboard/): Has anybody already built a dashboard for managing subscriptions and renewals? Making recurring payments visible, predictable and easy to change.
+
+## Other
+
+- [Design standard](https://aditya-vithaldas.github.io/knowhow/design-standard/): Knowhow’s palette, type, illustration and motion guidelines.
