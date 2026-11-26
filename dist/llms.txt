@@ -1,16 +1,28 @@
 # Knowhow
 
-> Before you build, see how others approached it: case studies for an e-commerce lead CRM, conversational onboarding, an AI knowledge base with sources, a maker marketplace and a subscription dashboard — and reach the person who built it.
+> Case studies with screens and videos: an AI-native CRM, B2B onboarding, a Slack teammate for analytics, agentic seller experiences, an e-commerce decision harness, travel agents and more. Share your specific need and reach the builder.
 
-Knowhow answers one question: “Has anybody already built this?” Each case study explains the question, the approach, the tradeoff and the lesson. Builders’ names are shared after an inquiry; inquiries go to aditya@decisionos.me.
+Knowhow answers one question: “Has anybody already built this?” Each project page explains the question, the approach, the tradeoff and the lesson, with every screen and video. To reach the builder, share your specific need at aditya@decisionos.me.
 
-## Case studies
+## Projects
 
-- [A CRM that follows the lead, not the spreadsheet](https://aditya-vithaldas.github.io/knowhow/projects/ecommerce-lead-crm/): Has anybody already built a CRM for tracking leads on an e-commerce system? Tracking e-commerce leads from first visit to first order.
-- [Onboarding that feels like a conversation](https://aditya-vithaldas.github.io/knowhow/projects/conversational-onboarding/): Has anybody already built a conversational-based onboarding experience? Replacing setup forms with a few friendly questions.
-- [A knowledge base that answers with sources](https://aditya-vithaldas.github.io/knowhow/projects/ai-knowledge-base-with-sources/): Has anybody already built an AI knowledge base that answers with sources? Turning scattered team knowledge into answers you can trust.
-- [A marketplace for independent makers](https://aditya-vithaldas.github.io/knowhow/projects/independent-maker-marketplace/): Has anybody already built a marketplace for independent makers? Connecting small makers with people who care about craft.
-- [A subscription dashboard people check on purpose](https://aditya-vithaldas.github.io/knowhow/projects/subscription-dashboard/): Has anybody already built a dashboard for managing subscriptions and renewals? Making recurring payments visible, predictable and easy to change.
+- [The changing face of CRM](https://aditya-vithaldas.github.io/knowhow/projects/crm-customer-harness/): Has anybody already built a CRM for tracking leads on an e-commerce system? What a CRM competes on once anyone can rebuild the workflow in a weekend.
+- [Onboarding new B2B users without the AI feature tour](https://aditya-vithaldas.github.io/knowhow/projects/b2b-onboarding/): Has anybody already built a conversational-based onboarding experience? Six mindsets new B2B users move through, with fixes you can ship this week.
+- [A Slack teammate for product and analytics teams](https://aditya-vithaldas.github.io/knowhow/projects/slack-teammate/): Has anybody already built a Slack teammate that learns from the whole team? Turning each expert’s personal skills into a shared assistant everyone can use.
+- [Delightful seller experiences in an agentic world](https://aditya-vithaldas.github.io/knowhow/projects/agentic-seller-experiences/): Has anybody already built an agent that runs the seller side of a marketplace? A three-part series on agents for marketplace sellers — cohorts, workflows and why chat isn’t the strategy.
+- [An opinionated decision harness for e-commerce analytics](https://aditya-vithaldas.github.io/knowhow/projects/decision-harness/): Has anybody already built an analytics harness that tells you what changed and why? Benchmarks, data-hygiene checks and a daily brief instead of another dashboard.
+- [Software that consults: context as the new moat](https://aditya-vithaldas.github.io/knowhow/projects/software-that-consults/): Has anybody already built software that consults instead of just executing? When software is cheap to build, depth of context, owning the workflow and delivering outcomes become the moat.
+- [AI product teardown: Asana as an OS for human–agent teams](https://aditya-vithaldas.github.io/knowhow/projects/asana-agentic-teardown/): Has anybody already built an AI-native work manager for humans and agents? Concepts for how Asana could look if it were built today, with fictional project data.
+- [Todoist as a true non-technical agent](https://aditya-vithaldas.github.io/knowhow/projects/todoist-agent/): Has anybody already built a to-do app that becomes an agent for everyday people? Ideas for how Todoist could lead in an agent-first world without overwhelming its users.
+- [Agentic customer experiences for travel](https://aditya-vithaldas.github.io/knowhow/projects/travel-agentic-cx/): Has anybody already built an agent that plans the whole trip, not just the booking? Earning the next booking by making this trip easier.
+- [The forks in the road for assistants](https://aditya-vithaldas.github.io/knowhow/projects/assistant-forks-hermes/): Has anybody already built a personal assistant that keeps up across mobile and desktop? Where personal agents are heading, illustrated with Hermes prototypes.
+- [Agents in investment management](https://aditya-vithaldas.github.io/knowhow/projects/investment-agents/): Has anybody already built agents built into an online investment platform? A video walkthrough of an investment platform with agents at its core.
+- [Animated shorts on building](https://aditya-vithaldas.github.io/knowhow/projects/animated-shorts/): Has anybody already built short animations that make an idea stick? A series of short animations about ideas, incubation and luck.
+
+## Writing
+
+- [Decision Axis](https://decisionaxis.substack.com/)
+- [Delightful AI Products](https://delightfulaiproducts.substack.com/)
 
 ## Other
 

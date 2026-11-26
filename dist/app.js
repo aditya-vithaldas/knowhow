@@ -1,26 +1,66 @@
-const projects=window.KNOWHOW_PROJECTS;
-const $=id=>document.getElementById(id);let view='projects',filter='All';let requests=[],submissions=[],inquiries=[];try{requests=JSON.parse(localStorage.getItem('knowhow-requests')||'[]');submissions=JSON.parse(localStorage.getItem('knowhow-submissions')||'[]');inquiries=JSON.parse(localStorage.getItem('knowhow-inquiries')||'[]')}catch{}const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-function save(){try{localStorage.setItem('knowhow-requests',JSON.stringify(requests));localStorage.setItem('knowhow-submissions',JSON.stringify(submissions));localStorage.setItem('knowhow-inquiries',JSON.stringify(inquiries));return true}catch{alert('Your browser could not save this entry. Please copy it before closing.');return false}}
-const INBOX='aditya@decisionos.me';
-const mail=(subject,body)=>{location.href=`mailto:${INBOX}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`};
-const known=p=>inquiries.some(q=>q.img===p.img);
-const who=p=>known(p)?p.name:'Name shared after you inquire';
-const mark=p=>known(p)?p.initials:'✳';
-const art=p=>`<div class="art"><img src="assets/${p.img}.png" alt="" loading="lazy"></div>`;
-function render(){const q=$('search').value.toLowerCase().trim();$('sectionLabel').textContent=view==='projects'?'THE PROJECT LIBRARY':view==='people'?'THE MINDS BEHIND THE WORK':'IDEAS LOOKING FOR THEIR PEOPLE';$('sectionTitle').textContent=view==='projects'?(q?'Find your starting point.':'Start with a possibility.'):view==='people'?'Find someone who gets it.':'Start a new possibility.';$('filters').hidden=view==='requests';let list=projects.filter(p=>(filter==='All'||p.category===filter)&&(!q||`${p.title} ${p.category} ${p.role} ${known(p)?p.name:''} ${p.query}`.toLowerCase().includes(q)));if($('sort').value==='title')list=[...list].sort((a,b)=>a.title.localeCompare(b.title));if(view==='requests'){$('grid').innerHTML=requests.filter(r=>!q||`${r.title} ${r.details}`.toLowerCase().includes(q)).map(r=>`<article class="card request-card"><span class="tag">LOCAL PROJECT REQUEST</span><h3>${esc(r.title)}</h3><p>${esc(r.details)}</p><span class="status">Saved on this device · ${esc(r.stage)}</span></article>`).join('')||`<div class="empty"><h3>A good question is a great start.</h3><p>No requests here yet. Describe what you want to build.</p><button class="primary" onclick="requestForm()">Post the first request</button></div>`;return}$('grid').innerHTML=list.map(p=>view==='people'?`<button class="card person-card" data-person="${projects.indexOf(p)}"><div class="avatar">${mark(p)}</div><h3>${p.role}</h3><span class="tag">${known(p)?p.name:'Name hidden until you inquire'}</span><p style="margin-top:14px">${p.desc}</p><span class="status">${known(p)?'Inquiry sent · View profile →':'Explore their thinking →'}</span></button>`:`<button class="card" data-project="${projects.indexOf(p)}">${art(p)}<div class="card-body"><span class="tag">${p.category}</span><h3>${p.title}</h3><p>${p.desc}</p><div class="person"><span class="avatar">${mark(p)}</span><span>${p.role}<small>${who(p)}</small></span><span class="read">Read the thinking →</span></div></div></button>`).join('')||`<div class="empty"><h3>This idea hasn’t found its case study yet.</h3><p>Try fewer words, explore another category, or request the knowhow you need.</p><button class="primary" onclick="requestForm()">Request this project</button></div>`}
-function open(html){$('modal').innerHTML=html;if(!$('dialog').open)$('dialog').showModal()}
-function project(i){const p=projects[i];open(`<div class="modal-art"><img src="assets/${p.img}.png" alt=""></div><span class="tag">${p.category} · Illustrative case study</span><h2>${p.title}</h2><p>${p.question}</p><h3>The approach</h3><p>${p.approach}</p><h3>The tradeoff</h3><p>${p.tradeoff}</p><h3>What to take with you</h3><p>${p.lesson}</p><p><a href="projects/${p.slug}/">Read the full case study →</a></p><button class="primary" onclick="person(${i})">${known(p)?'Meet '+p.name.split(' ')[0]:'Meet the '+p.role.toLowerCase()}</button>`)}
-function person(i){const p=projects[i];open(`<span class="tag">EXAMPLE PROFILE</span><h2>${known(p)?p.name:p.role}</h2><p>${known(p)?p.role+' · '+p.category:p.category+' · Name shared once you send an inquiry'}</p><h3>How I think about the work</h3><p>${p.approach}</p><h3>Explore the project</h3><p>${p.title}</p><button class="outline" onclick="project(${i})">Read the case study</button>${known(p)?`<h3>Your inquiry</h3><p>${esc(inquiries.find(q=>q.img===p.img).message)}</p><p>Sent to ${p.name} at <a href="mailto:${INBOX}">${INBOX}</a>.</p><button class="outline" onclick="inquire(${i})">Send another inquiry</button>`:`<h3>Have a related challenge?</h3><p>Send an inquiry to see who this is and start a conversation.</p><button class="primary" onclick="inquire(${i})">Send an inquiry</button>`}`)}
-function inquire(i){const p=projects[i];open(`<span class="tag">INQUIRY · ${esc(p.role.toUpperCase())}</span><h2>Ask about “${p.title}”</h2><p>Tell them what you’re building and what you’d like to know. Sending opens your email app with the inquiry ready to go.</p><form id="entry"><label for="from">Your name</label><input id="from" required maxlength="80"><label for="message">Your question</label><textarea id="message" required maxlength="3000" placeholder="I’m building… and I’d love your view on…"></textarea><button class="primary">Send inquiry</button></form>`);$('entry').onsubmit=e=>{e.preventDefault();const q={img:p.img,from:$('from').value.trim(),message:$('message').value.trim()};if(!q.from||!q.message)return;inquiries=inquiries.filter(x=>x.img!==p.img);inquiries.unshift(q);mail(`Knowhow inquiry: ${p.title}`,`${q.message}\n\n— ${q.from}\n\n(Sent from Knowhow · ${p.role} · ${p.title})`);if(save()){render();open(`<span class="tag">INQUIRY SAVED</span><h2>You’re connected with ${p.name}.</h2><p>${p.role} · ${p.category}</p><p>Your email app should have opened with the inquiry addressed to ${p.name}. If it didn’t, write to <a href="mailto:${INBOX}">${INBOX}</a>.</p><button class="outline" onclick="person(${i})">View profile</button>`)}}}
-function requestForm(name=''){open(`<span class="tag">START WITH THE QUESTION</span><h2>What do you want to build?</h2><p>Describe the outcome and the thinking you need. Saving opens your email app so the request reaches Aditya.</p><form id="entry"><label for="title">Your project idea</label><input id="title" required maxlength="120" placeholder="I want to build…" value="${esc($('search').value)}"><label for="details">What are you trying to achieve?</label><textarea id="details" required maxlength="3000" placeholder="Who is it for? What have you tried? Where are you stuck?">${name?esc('Inspired by the '+name+' example project. '):''}</textarea><label for="stage">Where are you now?</label><select id="stage"><option>Exploring an idea</option><option>Planning an approach</option><option>Building a first version</option><option>Improving something existing</option></select><button class="primary">Send project request</button></form>`);$('entry').onsubmit=e=>{e.preventDefault();const r={title:$('title').value.trim(),details:$('details').value.trim(),stage:$('stage').value};if(!r.title||!r.details)return;requests.unshift(r);mail(`Knowhow project request: ${r.title}`,`${r.details}\n\nStage: ${r.stage}`);if(save()){$('dialog').close();$('search').value='';setView('requests')}}}
-function share(){open(`<span class="tag">THE REASONING IS THE STORY</span><h2>Share your thinking.</h2><p>Explain the decisions, not just the result. Sending opens your email app addressed to Aditya; a copy stays on this device.</p><form id="entry"><label for="title">Project title</label><input id="title" required maxlength="120"><label for="details">The problem, your approach, and the tradeoffs</label><textarea id="details" required maxlength="5000" placeholder="What did you choose, why, and what would you do differently?"></textarea><button class="primary">Send case study draft</button></form>${submissions.length?'<h3>Your saved drafts</h3>'+submissions.map(s=>`<details><summary>${esc(s.title)}</summary><p style="white-space:pre-wrap">${esc(s.details)}</p></details>`).join(''):''}`);$('entry').onsubmit=e=>{e.preventDefault();const s={title:$('title').value.trim(),details:$('details').value.trim()};if(!s.title||!s.details)return;submissions.unshift(s);mail(`Knowhow case study: ${s.title}`,s.details);if(save())open('<span class="tag">SENT TO ADITYA</span><h2>Your thinking has a starting point.</h2><p>Your email app should have opened with the draft addressed to <a href="mailto:'+INBOX+'">'+INBOX+'</a>. A copy is saved under “Share your thinking”. Nothing is published.</p>')}}
-function setView(v){view=v;filter='All';document.querySelectorAll('[data-filter]').forEach(b=>b.classList.toggle('selected',b.dataset.filter==='All'));document.querySelectorAll('[data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===v));render()}
-document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>setView(b.dataset.view));document.querySelectorAll('[data-filter]').forEach(b=>b.onclick=()=>{filter=b.dataset.filter;document.querySelectorAll('[data-filter]').forEach(x=>x.classList.toggle('selected',x===b));render()});document.querySelectorAll('[data-query]').forEach(b=>b.onclick=()=>{$('search').value=b.dataset.query;setView('projects');$('sectionTitle').scrollIntoView({behavior:'smooth',block:'center'})});$('searchForm').onsubmit=e=>{e.preventDefault();render();$('sectionTitle').scrollIntoView({behavior:'smooth',block:'center'})};$('search').oninput=render;$('sort').onchange=render;$('grid').onclick=e=>{const p=e.target.closest('[data-project]'),n=e.target.closest('[data-person]');if(p)project(+p.dataset.project);if(n)person(+n.dataset.person)};$('request').onclick=()=>requestForm();$('share').onclick=share;document.querySelector('.close').onclick=()=>$('dialog').close();$('dialog').onclick=e=>{if(e.target===$('dialog')){const r=$('dialog').getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)$('dialog').close()}};render();
+const projects = window.KNOWHOW_PROJECTS;
+const INBOX = 'aditya@decisionos.me';
+const $ = id => document.getElementById(id);
+let filter = 'All';
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const mail = (subject, body) => { location.href = `mailto:${INBOX}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`; };
+const thumb = p => p.img ? `assets/${p.img}.png` : p.cover;
+
+function card(p) {
+  const shots = p.media.filter(m => m.type === 'img').length, vids = p.media.filter(m => m.type === 'video').length;
+  const count = [shots && `${shots} screen${shots > 1 ? 's' : ''}`, vids && `${vids} video${vids > 1 ? 's' : ''}`].filter(Boolean).join(' · ');
+  return `<a class="card" href="projects/${p.slug}/"><div class="art${p.img ? '' : ' shot'}"><img src="${esc(thumb(p))}" alt="" loading="lazy"></div><div class="card-body"><span class="tag">${esc(p.category)}</span><h3>${esc(p.title)}</h3><p>${esc(p.desc)}</p><div class="person"><span class="avatar">✳</span><span>${esc(p.role)}<small>${count}</small></span><span class="read">See the project →</span></div></div></a>`;
+}
+
+function render() {
+  const q = $('search').value.toLowerCase().trim();
+  $('sectionTitle').textContent = q ? 'Find your starting point.' : 'Start with a possibility.';
+  const list = projects.filter(p => (filter === 'All' || p.category === filter) && (!q || `${p.title} ${p.category} ${p.role} ${p.desc} ${p.query}`.toLowerCase().includes(q)));
+  if ($('sort').value === 'title') list.sort((a, b) => a.title.localeCompare(b.title));
+  if ($('sort').value === 'new') list.sort((a, b) => b.date.localeCompare(a.date));
+  $('grid').innerHTML = list.map(card).join('') || `<div class="empty"><h3>This idea hasn’t found its case study yet.</h3><p>Try fewer words, another category, or share your specific need.</p><button class="primary" onclick="needForm()">Share your specific need</button></div>`;
+}
+
+function open(html) { $('modal').innerHTML = html; if (!$('dialog').open) $('dialog').showModal(); }
+
+function needForm() {
+  open(`<span class="tag">START WITH THE QUESTION</span><h2>Share your specific need.</h2><p>Describe what you want to build and where you’re stuck. Sending opens your email app with it addressed to ${INBOX}.</p><form id="entry"><label for="title">What do you want to build?</label><input id="title" required maxlength="120" placeholder="I want to build…" value="${esc($('search').value)}"><label for="details">Your specific need</label><textarea id="details" required maxlength="3000" placeholder="Who is it for? What have you tried? Where are you stuck?"></textarea><label for="stage">Where are you now?</label><select id="stage"><option>Exploring an idea</option><option>Planning an approach</option><option>Building a first version</option><option>Improving something existing</option></select><button class="primary">Send</button></form>`);
+  $('entry').onsubmit = e => {
+    e.preventDefault();
+    const t = $('title').value.trim(), d = $('details').value.trim();
+    if (!t || !d) return;
+    mail(`Knowhow: ${t}`, `${d}\n\nStage: ${$('stage').value}`);
+    open(`<span class="tag">ALMOST THERE</span><h2>Your email app should be open.</h2><p>Send the drafted email to share your need. If nothing opened, write to <a href="mailto:${INBOX}">${INBOX}</a>.</p>`);
+  };
+}
+
+document.querySelectorAll('[data-filter]').forEach(b => b.onclick = () => { filter = b.dataset.filter; document.querySelectorAll('[data-filter]').forEach(x => x.classList.toggle('selected', x === b)); render(); });
+document.querySelectorAll('[data-query]').forEach(b => b.onclick = () => { $('search').value = b.dataset.query; render(); $('sectionTitle').scrollIntoView({ behavior: 'smooth', block: 'center' }); });
+$('searchForm').onsubmit = e => { e.preventDefault(); render(); $('sectionTitle').scrollIntoView({ behavior: 'smooth', block: 'center' }); };
+$('search').oninput = render;
+$('sort').onchange = render;
+document.querySelectorAll('[data-need]').forEach(b => b.onclick = needForm);
+document.querySelector('.close').onclick = () => $('dialog').close();
+$('dialog').onclick = e => { if (e.target === $('dialog')) { const r = $('dialog').getBoundingClientRect(); if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) $('dialog').close(); } };
+render();
 
 // Hero question: type ~55ms/char, hold 3s, erase at 25ms; fade the matching illustration in as each new question begins.
-const typed=$('rotatingProject'),heroArt=$('heroArt'),motion=window.matchMedia('(prefers-reduced-motion: reduce)');
-projects.forEach(p=>{const i=new Image();i.src=`assets/${p.img}.png`});
-let qi=0,timer;const wait=(ms)=>new Promise(r=>{timer=setTimeout(r,ms)});let run=0;
-async function cycle(id){while(id===run){await wait(3000);if(id!==run)return;let t=projects[qi].headline;for(let n=t.length;n>=0&&id===run;n--){typed.textContent=t.slice(0,n);await wait(25)}qi=(qi+1)%projects.length;heroArt.classList.add('is-changing');await wait(200);heroArt.src=`assets/${projects[qi].img}.png`;heroArt.classList.remove('is-changing');t=projects[qi].headline;for(let n=1;n<=t.length&&id===run;n++){typed.textContent=t.slice(0,n);await wait(55)}}}
-function restart(){clearTimeout(timer);run++;typed.textContent=projects[qi].headline;heroArt.src=`assets/${projects[qi].img}.png`;heroArt.classList.remove('is-changing');if(!motion.matches&&!document.hidden)cycle(run)}
-document.addEventListener('visibilitychange',restart);motion.addEventListener('change',restart);restart();
+const heroProjects = projects.filter(p => p.img);
+const typed = $('rotatingProject'), heroArt = $('heroArt'), heroLink = $('heroLink'), motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+heroProjects.forEach(p => { const i = new Image(); i.src = `assets/${p.img}.png`; });
+let qi = 0, timer, run = 0;
+const wait = ms => new Promise(r => { timer = setTimeout(r, ms); });
+function show(p) { heroArt.src = `assets/${p.img}.png`; heroLink.href = `projects/${p.slug}/`; }
+async function cycle(id) {
+  while (id === run) {
+    await wait(3000); if (id !== run) return;
+    let t = heroProjects[qi].headline;
+    for (let n = t.length; n >= 0 && id === run; n--) { typed.textContent = t.slice(0, n); await wait(25); }
+    qi = (qi + 1) % heroProjects.length;
+    heroArt.classList.add('is-changing'); await wait(200); show(heroProjects[qi]); heroArt.classList.remove('is-changing');
+    t = heroProjects[qi].headline;
+    for (let n = 1; n <= t.length && id === run; n++) { typed.textContent = t.slice(0, n); await wait(55); }
+  }
+}
+function restart() { clearTimeout(timer); run++; typed.textContent = heroProjects[qi].headline; show(heroProjects[qi]); heroArt.classList.remove('is-changing'); if (!motion.matches && !document.hidden) cycle(run); }
+document.addEventListener('visibilitychange', restart); motion.addEventListener('change', restart); restart();
