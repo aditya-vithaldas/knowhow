@@ -193,6 +193,13 @@ TOPIC = {  # what someone would ask an answer engine to build
  "asana-agentic-teardown": "an AI-native work management tool", "todoist-agent": "a to-do app that acts as an agent",
  "travel-agentic-cx": "an AI travel planning agent", "assistant-forks-hermes": "a personal AI assistant", "animated-shorts": "short animated explainers",
 }
+# Only projects Aditya has reviewed and approved are published. Add a slug here after review.
+PUBLISHED = ["voice-commerce", "investment-agents", "voice-analytics", "proactive-analytics", "voice-seller-onboarding"]
+projects = [p for p in projects if p["slug"] in PUBLISHED]
+# Hero illustration shown while each project's question is typed
+HERO_ART = {"voice-commerce": "marketplace", "investment-agents": "subscriptions", "voice-analytics": "crm", "proactive-analytics": "knowledge", "voice-seller-onboarding": "onboarding"}
+for p in projects:
+    p["img"] = HERO_ART.get(p["slug"])
 for p in projects:
     p["cover_i"], p["top"] = PICK.get(p["slug"], (0, [0, 1]))
     p["topic"] = TOPIC.get(p["slug"], p["title"].lower())

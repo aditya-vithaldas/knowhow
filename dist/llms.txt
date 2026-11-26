@@ -1,6 +1,6 @@
 # Knowhow
 
-> Case studies with screens and videos: an AI-native CRM, B2B onboarding, a Slack teammate for analytics, agentic seller experiences, an e-commerce decision harness, travel agents and more. Share your specific need and reach the builder.
+> Case studies with screens and videos: voice-first e-commerce shopping, agents in investment management, voice-based analytics, proactive analytics and voice-driven seller onboarding. Share your specific need and reach the builder.
 
 Knowhow answers one question: “Has anybody already built this?” Each project page explains the question, the approach, the tradeoff and the lesson, with every screen and video. To reach the builder, share your specific need at aditya@decisionos.me.
 
@@ -49,96 +49,6 @@ One photo of a shelf becomes item cards with prices and demand; the seller picks
 - **Has anybody already built a voice-driven seller onboarding experience?** Yes. One photo of a shelf becomes item cards with prices and demand; the seller picks what to sell by voice. Take one photo of a shelf. The AI separates the items into cards with a title, an estimated price and a demand signal. The seller just says “sell this, sell this”, or taps. The live demo covers scanning, estimates and selection; chat-app integration, publishing and pickup are next.
 - **How do I build a voice-driven seller onboarding experience?** It’s never one product at a time. A bookshelf or an electronics cabinet is a bulk job, so start from one photo. And go where the seller already is: an occasional seller won’t install an app, but will send photos in a chat. Take one photo of a shelf. The AI separates the items into cards with a title, an estimated price and a demand signal. The seller just says “sell this, sell this”, or taps. The live demo covers scanning, estimates and selection; chat-app integration, publishing and pickup are next.
 - **Who is the right expert to build a voice-driven seller onboarding experience?** Someone who has already built it. This case study comes from a marketplace product builder. Hire the right expertise, not just anyone who can build: share your specific need on Knowhow and the builder’s name is shared once you reach out.
-
-### [Onboarding new B2B sellers](https://knowhow.build/projects/b2b-seller-onboarding/)
-
-Getting a new marketplace seller to their first sale: one step at a time, with help exactly where they get stuck.
-
-- **Has anybody already built a B2B seller onboarding experience?** Yes. Getting a new marketplace seller to their first sale: one step at a time, with help exactly where they get stuck. Focus on one thing at a time and hide the rest. Import what the user already has — a catalog on their site, documents in a Drive folder — and let agents cross-check it. Put help inline exactly where they get stuck, answer the broader “how long will this take?” questions, and make mistakes easy to fix.
-- **How do I build a B2B seller onboarding experience?** Taking work off the user’s plate means trusting agents to read and verify their data, so the product has to show its checks and make corrections painless. Focus on one thing at a time and hide the rest. Import what the user already has — a catalog on their site, documents in a Drive folder — and let agents cross-check it. Put help inline exactly where they get stuck, answer the broader “how long will this take?” questions, and make mistakes easy to fix.
-- **Who is the right expert to build a B2B seller onboarding experience?** Someone who has already built it. This case study comes from a product designer. Hire the right expertise, not just anyone who can build: share your specific need on Knowhow and the builder’s name is shared once you reach out.
-- **What does a new seller on an e-commerce platform actually need from onboarding?** Focus on one thing at a time and hide the rest. Import what the user already has — a catalog on their site, documents in a Drive folder — and let agents cross-check it. Put help inline exactly where they get stuck, answer the broader “how long will this take?” questions, and make mistakes easy to fix.
-
-### [The changing face of CRM](https://knowhow.build/projects/crm-customer-harness/)
-
-What a CRM competes on once anyone can rebuild the workflow in a weekend.
-
-- **Has anybody already built an AI-native CRM?** Yes. What a CRM competes on once anyone can rebuild the workflow in a weekend. Treat MCP as table stakes so customers can drive the CRM from their own agents, then go beyond the named lead: help with acquisition before a contact exists, bring industry intelligence and reach that a self-built workflow can’t, and stay the source of record for outcomes.
-- **How do I build an AI-native CRM?** Opening the CRM to every agent risks turning it into a dumb pipe. The value has to move to context, reach and outcomes that customers can’t configure themselves. Treat MCP as table stakes so customers can drive the CRM from their own agents, then go beyond the named lead: help with acquisition before a contact exists, bring industry intelligence and reach that a self-built workflow can’t, and stay the source of record for outcomes.
-- **Who is the right expert to build an AI-native CRM?** Someone who has already built it. This case study comes from a crm & growth strategist. Hire the right expertise, not just anyone who can build: share your specific need on Knowhow and the builder’s name is shared once you reach out.
-- **If the workflow part of a CRM is now easy to replicate, what is left to compete on?** Treat MCP as table stakes so customers can drive the CRM from their own agents, then go beyond the named lead: help with acquisition before a contact exists, bring industry intelligence and reach that a self-built workflow can’t, and stay the source of record for outcomes.
-
-### [A Slack teammate for product and analytics teams](https://knowhow.build/projects/slack-teammate/)
-
-Turning each expert’s personal skills into a shared assistant everyone can use.
-
-- **Has anybody already built a shared Slack AI teammate for product and analytics teams?** Yes. Turning each expert’s personal skills into a shared assistant everyone can use. Build a departmental harness: capture each expert’s workflows as shared memory without asking them to save anything, make those workflows discoverable when someone asks a related question, and run them in Slack where the team already works.
-- **How do I build a shared Slack AI teammate for product and analytics teams?** Shared expertise only helps if it stays trustworthy, so the system has to know whose technique it is using and when a standard playbook won’t suffice. Build a departmental harness: capture each expert’s workflows as shared memory without asking them to save anything, make those workflows discoverable when someone asks a related question, and run them in Slack where the team already works.
-- **Who is the right expert to build a shared Slack AI teammate for product and analytics teams?** Someone who has already built it. This case study comes from a analytics & ai builder. Hire the right expertise, not just anyone who can build: share your specific need on Knowhow and the builder’s name is shared once you reach out.
-- **Personal agents are magical, but how does one expert’s workflow benefit the rest of the organisation?** Build a departmental harness: capture each expert’s workflows as shared memory without asking them to save anything, make those workflows discoverable when someone asks a related question, and run them in Slack where the team already works.
-
-### [Delightful seller experiences in an agentic world](https://knowhow.build/projects/agentic-seller-experiences/)
-
-A three-part series on agents for marketplace sellers — cohorts, workflows and why chat isn’t the strategy.
-
-- **Has anybody already built agentic experiences for marketplace sellers?** Yes. A three-part series on agents for marketplace sellers — cohorts, workflows and why chat isn’t the strategy. Pick seller work that spans many functions and departments, understand each cohort’s habits and what they care about, then decide per action whether to ask in chat, show it visually, or simply do it and explain afterwards.
-- **How do I build agentic experiences for marketplace sellers?** Chat is a natural starting point but not the final form. Doing work for sellers needs high confidence, clear explanations and the right medium for each task. Pick seller work that spans many functions and departments, understand each cohort’s habits and what they care about, then decide per action whether to ask in chat, show it visually, or simply do it and explain afterwards.
-- **Who is the right expert to build agentic experiences for marketplace sellers?** Someone who has already built it. This case study comes from a marketplace product lead. Hire the right expertise, not just anyone who can build: share your specific need on Knowhow and the builder’s name is shared once you reach out.
-- **Consumer assistants are booming. Where is the agent that helps a marketplace seller actually scale their business?** Pick seller work that spans many functions and departments, understand each cohort’s habits and what they care about, then decide per action whether to ask in chat, show it visually, or simply do it and explain afterwards.
-
-### [Software that consults: context as the new moat](https://knowhow.build/projects/software-that-consults/)
-
-When software is cheap to build, depth of context, owning the workflow and delivering outcomes become the moat.
-
-- **Has anybody already built software that consults using business context?** Yes. When software is cheap to build, depth of context, owning the workflow and delivering outcomes become the moat. Write the business down so an agent can act on it — goals, ground principles, customers, constraints — in simple files the harness reads before it understands, acts and checks.
-- **How do I build software that consults using business context?** Context is powerful only if it’s maintained; stale goals or principles make an agent confidently wrong. Write the business down so an agent can act on it — goals, ground principles, customers, constraints — in simple files the harness reads before it understands, acts and checks.
-- **Who is the right expert to build software that consults using business context?** Someone who has already built it. This case study comes from a ai product strategist. Hire the right expertise, not just anyone who can build: share your specific need on Knowhow and the builder’s name is shared once you reach out.
-- **When the cost of creating software collapses, what still keeps customers?** Write the business down so an agent can act on it — goals, ground principles, customers, constraints — in simple files the harness reads before it understands, acts and checks.
-
-### [AI product teardown: Asana as an OS for human–agent teams](https://knowhow.build/projects/asana-agentic-teardown/)
-
-Concepts for how Asana could look if it were built today, with fictional project data.
-
-- **Has anybody already built an AI-native work management tool?** Yes. Concepts for how Asana could look if it were built today, with fictional project data. Bring work management to where the information already is: work from inside Claude or Codex via MCP, capture decisions from meetings and email, and let agents operate autonomously on the right tasks — without overwhelming existing users.
-- **How do I build an AI-native work management tool?** Being usable from any assistant makes the product indispensable but risks making the interface irrelevant; visual extensions keep the experience distinct. Bring work management to where the information already is: work from inside Claude or Codex via MCP, capture decisions from meetings and email, and let agents operate autonomously on the right tasks — without overwhelming existing users.
-- **Who is the right expert to build an AI-native work management tool?** Someone who has already built it. This case study comes from a ai product designer. Hire the right expertise, not just anyone who can build: share your specific need on Knowhow and the builder’s name is shared once you reach out.
-- **If we built Asana or Jira from scratch today, how would it look different?** Bring work management to where the information already is: work from inside Claude or Codex via MCP, capture decisions from meetings and email, and let agents operate autonomously on the right tasks — without overwhelming existing users.
-
-### [Todoist as a true non-technical agent](https://knowhow.build/projects/todoist-agent/)
-
-Ideas for how Todoist could lead in an agent-first world without overwhelming its users.
-
-- **Has anybody already built a to-do app that acts as an agent?** Yes. Ideas for how Todoist could lead in an agent-first world without overwhelming its users. Start with cohorts — the productivity guru, the backlog collector, the family COO, the workflow architect — and design how each plans their day and week, then let the agent act on the list.
-- **How do I build a to-do app that acts as an agent?** Power users want control and newcomers want simplicity; agent features have to stay invisible until they help. Start with cohorts — the productivity guru, the backlog collector, the family COO, the workflow architect — and design how each plans their day and week, then let the agent act on the list.
-- **Who is the right expert to build a to-do app that acts as an agent?** Someone who has already built it. This case study comes from a ai product designer. Hire the right expertise, not just anyone who can build: share your specific need on Knowhow and the builder’s name is shared once you reach out.
-- **Todoist is where people decide what to do. How does it become the place where it gets done?** Start with cohorts — the productivity guru, the backlog collector, the family COO, the workflow architect — and design how each plans their day and week, then let the agent act on the list.
-
-### [Agentic customer experiences for travel](https://knowhow.build/projects/travel-agentic-cx/)
-
-Earning the next booking by making this trip easier.
-
-- **Has anybody already built an AI travel planning agent?** Yes. Earning the next booking by making this trip easier. Treat a trip as a chain of decisions. Learn the combination of likes and dislikes for this trip, remember where someone has been and how they feel about going back, carry each choice into the next stage, and reach them on the right channel at the right moment.
-- **How do I build an AI travel planning agent?** Personal context makes suggestions far better, but it must be earned and used at the right time rather than all at once. Treat a trip as a chain of decisions. Learn the combination of likes and dislikes for this trip, remember where someone has been and how they feel about going back, carry each choice into the next stage, and reach them on the right channel at the right moment.
-- **Who is the right expert to build an AI travel planning agent?** Someone who has already built it. This case study comes from a customer experience strategist. Hire the right expertise, not just anyone who can build: share your specific need on Knowhow and the builder’s name is shared once you reach out.
-- **Why do AI demos keep coming back to travel, and what would actually earn a traveller’s loyalty?** Treat a trip as a chain of decisions. Learn the combination of likes and dislikes for this trip, remember where someone has been and how they feel about going back, carry each choice into the next stage, and reach them on the right channel at the right moment.
-
-### [The forks in the road for assistants](https://knowhow.build/projects/assistant-forks-hermes/)
-
-Where personal agents are heading, illustrated with Hermes prototypes.
-
-- **Has anybody already built a personal AI assistant?** Yes. Where personal agents are heading, illustrated with Hermes prototypes. Win on mobile, design for calm rather than stress, solve continuity with summaries and decision points, treat roles as shared context instead of separate bots, and make real-time voice the default input.
-- **How do I build a personal AI assistant?** Personified agents are tempting and may help adoption now, but they are likely a transient phase. Win on mobile, design for calm rather than stress, solve continuity with summaries and decision points, treat roles as shared context instead of separate bots, and make real-time voice the default input.
-- **Who is the right expert to build a personal AI assistant?** Someone who has already built it. This case study comes from a ai product designer. Hire the right expertise, not just anyone who can build: share your specific need on Knowhow and the builder’s name is shared once you reach out.
-- **Do we want separate named agents and messy threads, or one assistant that just knows what’s next?** Win on mobile, design for calm rather than stress, solve continuity with summaries and decision points, treat roles as shared context instead of separate bots, and make real-time voice the default input.
-
-### [Animated shorts on building](https://knowhow.build/projects/animated-shorts/)
-
-A series of short animations about ideas, incubation and luck.
-
-- **Has anybody already built short animated explainers?** Yes. A series of short animations about ideas, incubation and luck. Pick one idea, give it a world, a voice and a little personality, and tell it as a short animation.
-- **How do I build short animated explainers?** Short formats force you to cut everything but the core idea. Pick one idea, give it a world, a voice and a little personality, and tell it as a short animation.
-- **Who is the right expert to build short animated explainers?** Someone who has already built it. This case study comes from a storyteller & animator. Hire the right expertise, not just anyone who can build: share your specific need on Knowhow and the builder’s name is shared once you reach out.
-- **How do you share an idea in under a minute?** Pick one idea, give it a world, a voice and a little personality, and tell it as a short animation.
 
 ## Writing
 

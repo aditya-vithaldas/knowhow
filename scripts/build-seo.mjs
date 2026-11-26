@@ -14,8 +14,8 @@ const DIST = path.join(ROOT, 'dist');
 const SITE = (process.env.SITE_URL || 'https://knowhow.build/').replace(/\/?$/, '/');
 const INBOX = 'aditya@decisionos.me';
 const BRAND = 'Knowhow';
-const TITLE = 'Knowhow — Has anybody already built it? AI product case studies, prototypes and teardowns';
-const DESC = 'Case studies with screens and videos: an AI-native CRM, B2B onboarding, a Slack teammate for analytics, agentic seller experiences, an e-commerce decision harness, travel agents and more. Share your specific need and reach the builder.';
+const TITLE = 'Knowhow — Has anybody already built it? Voice commerce, AI analytics and agent case studies';
+const DESC = 'Case studies with screens and videos: voice-first e-commerce shopping, agents in investment management, voice-based analytics, proactive analytics and voice-driven seller onboarding. Share your specific need and reach the builder.';
 const WRITING = [['Decision Axis', 'https://decisionaxis.substack.com/'], ['Delightful AI Products', 'https://delightfulaiproducts.substack.com/']];
 
 const ctx = { window: {} };
@@ -66,8 +66,7 @@ function footer(prefix = '') {
   return `<footer class="site-footer">
   <div class="footer-grid">
     <div class="footer-brand"><a class="brand" href="${prefix || './'}">knowhow<span>✳</span></a><p>A place for the thinking behind the doing.</p><button class="primary" data-need onclick="if(!window.needForm){location.href='${prefix}#need'}">Share your specific need</button></div>
-    <div><h4>Projects</h4><ul>${projects.slice(0, 6).map(p => `<li><a href="${prefix}projects/${p.slug}/">${esc(p.title)}</a></li>`).join('')}</ul></div>
-    <div><h4>More</h4><ul>${projects.slice(6).map(p => `<li><a href="${prefix}projects/${p.slug}/">${esc(p.title)}</a></li>`).join('')}</ul></div>
+    <div class="footer-projects"><h4>Projects</h4><ul>${projects.map(p => `<li><a href="${prefix}projects/${p.slug}/">${esc(p.title)}</a></li>`).join('')}</ul></div>
     <div><h4>Knowhow</h4><ul><li><a href="${prefix}design-standard/">Design standard</a></li>${WRITING.map(([n, u]) => `<li><a href="${u}" rel="me noopener">${n}</a></li>`).join('')}<li><a href="mailto:${INBOX}">${INBOX}</a></li></ul></div>
   </div>
   <div class="footer-base"><span>© ${year} Knowhow</span><span>Concepts and prototypes use fictional data unless stated.</span></div>
