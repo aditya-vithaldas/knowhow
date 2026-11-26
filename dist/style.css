@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@1&family=Manrope:wght@500;600;700;800&display=swap');
 
 /* Knowhow design standard — exploration 01 */
 :root{
@@ -313,33 +313,16 @@ a.hero-art{text-decoration:none}
 @media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr}.footer-projects{grid-column:1/-1}}
 @media(max-width:600px){.footer-grid{grid-template-columns:1fr}.footer-projects ul{grid-template-columns:1fr}}
 
-/* Warm accents: break up the all-blue palette */
-:root{
-  --coral:#E0701A;--coral-soft:#FFEBD9;--mint:#3E8E2F;--mint-soft:#E4F3DC;--amber:#C2255C;--amber-soft:#FCE4EC;--violet-soft:#EEEBFB;
-}
-.c-commerce{--cat:var(--coral);--cat-soft:var(--coral-soft)}
-.c-analytics{--cat:var(--mint);--cat-soft:var(--mint-soft)}
-.c-investment{--cat:var(--amber);--cat-soft:var(--amber-soft)}
-.card .tag,.case .eyebrow{color:var(--cat,var(--accent))}
-.card .thumb{background:var(--cat-soft,var(--soft));border-bottom:3px solid var(--cat,var(--line))}
-.card:hover{border-color:var(--cat,var(--line))}
-.case .top-shots .shot,.case .gallery .shot{background:var(--cat-soft,var(--soft))}
-.case .case-body h2{border-left:4px solid var(--cat,var(--accent));padding-left:10px}
-.case .aside{border-top:4px solid var(--cat,var(--accent))}
-.chips [data-filter="E-commerce"].selected{background:var(--coral);border-color:var(--coral)}
-.chips [data-filter="Investment management"].selected{background:var(--amber);border-color:var(--amber)}
-.chips [data-filter="E-commerce"]:not(.selected){color:var(--coral);border-color:#F6C9A2}
-.chips [data-filter="Investment management"]:not(.selected){color:var(--amber);border-color:#F1B3C8}
+/* One highlight colour and one highlight font; boxes stay uniform */
+:root{--hl:#D9661A;--hl-soft:#FFEFE2}
+.card .tag,.case .eyebrow,.step-num{color:var(--hl)}
+.card .thumb{background:var(--soft)}
+.chips .selected{background:var(--ink);border-color:var(--ink);color:#fff}
 .backed{flex-wrap:wrap;gap:6px;font-weight:600}
-.pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:13px;font-weight:700}
-.p-coral{background:var(--coral-soft);color:var(--coral)}
-.p-amber{background:var(--amber-soft);color:var(--amber)}
-.p-mint{background:var(--mint-soft);color:var(--mint)}
-.s1 a{background:linear-gradient(180deg,var(--mint-soft),#fff 55%);border-color:#C3E3B6}
-.s2 a{background:linear-gradient(180deg,var(--amber-soft),#fff 55%);border-color:#F1B3C8}
-.s1 .step-num{color:var(--mint)}
-.s2 .step-num{color:var(--amber)}
-.step-cta button{background:linear-gradient(180deg,var(--coral-soft),#fff 70%);border-color:#F6C9A2}
-.s3 .step-num{color:var(--coral)}
-.hero-art{background:linear-gradient(160deg,#fff 40%,var(--coral-soft))}
-.request-banner,.how{position:relative}
+.pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:13px;font-weight:700;background:var(--soft);color:var(--ink)}
+.step a,.step button,.step-cta button{background:var(--white);border-color:var(--line)}
+.serif{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-weight:400;letter-spacing:0}
+.heading-fixed .serif{font-size:1.08em;color:var(--ink)}
+.hire.serif,.card .hire,.aside .hire{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-weight:400;color:var(--hl);letter-spacing:0}
+.card .hire{font-size:15px}
+.aside .hire{font-size:21px;line-height:1.3}
