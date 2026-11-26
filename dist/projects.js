@@ -19,6 +19,10 @@ window.KNOWHOW_PROJECTS=[
   "source": "https://decisionos.me/projects/commerce.html",
   "demo": "https://ecommerce-storefront.decisionos.me/",
   "date": "2026-09-30",
+  "top": [
+   0,
+   5
+  ],
   "media": [
    {
     "type": "img",

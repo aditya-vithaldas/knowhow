@@ -23,7 +23,7 @@ lead = [
       approach="Let people ramble about what they need: budget, use, compromises. A live voice model listens and speaks at the same time, while the screen shows matching products, details, sample reviews and a growing shortlist.",
       tradeoff="Voice is great for working out what you want, but you still need to see products, specs and reviews. The conversation and the screen have to work together.",
       lesson="A twenty-second ramble gives far more signal than anything typed into a search box.",
-      source="https://decisionos.me/projects/commerce.html", demo="https://ecommerce-storefront.decisionos.me/", date="2026-09-30",
+      source="https://decisionos.me/projects/commerce.html", demo="https://ecommerce-storefront.decisionos.me/", date="2026-09-30", top=[0, 5],
       media=local("voice-commerce", ["home.png", "budget.png", "product.png", "reviews.png", "shortlist.png"], "Voice shopping") + [{"type": "youtube", "id": "1ZhL4hZDADA", "alt": "Voice shopping walkthrough"}]),
  dict(slug="voice-analytics", title="Voice-based analytics: an analyst on the call", category="Analytics", tags=["E-commerce"], role="Analytics product builder",
       headline="an analyst that answers while you’re still on the call?",

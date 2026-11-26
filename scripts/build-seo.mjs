@@ -48,7 +48,7 @@ const generalFaq = [
 ];
 
 function card(p, prefix = '') {
-  return `<a class="card" href="${prefix}projects/${p.slug}/"><div class="thumb"><img src="${esc(thumb(p, prefix))}" alt="${esc(p.title)}" loading="lazy"><span class="badge">${counts(p)}</span></div><div class="card-body"><span class="tag">${esc(p.category)}</span><h3>${esc(p.title)}</h3><p>${esc(p.desc)}</p><div class="contact"><span class="blur-avatar" aria-hidden="true"></span><span class="contact-text"><small>Built by</small><span class="blurred" aria-hidden="true">Xxxxxx Xxxxxxxx</span><span class="reveal">${LOCK} Revealed after you reach out</span></span></div></div></a>`;
+  return `<a class="card" href="${prefix}projects/${p.slug}/"><div class="thumb"><img src="${esc(thumb(p, prefix))}" alt="${esc(p.title)}" loading="lazy"><span class="badge">${counts(p)}</span></div><div class="card-body"><span class="tag">${esc(p.category)}</span><h3>${esc(p.title)}</h3><p>${esc(p.desc)}</p><div class="contact"><span class="blur-avatar" aria-hidden="true"></span><span class="contact-text"><small>Built by</small><span class="blurred" aria-hidden="true">Xxxxxx Xxxxxxxx</span><span class="reveal">${LOCK} Revealed after you reach out</span></span></div><p class="hire">Hire the right expertise, not just anyone who can build.</p></div></a>`;
 }
 
 function footer(prefix = '') {
@@ -58,7 +58,7 @@ function footer(prefix = '') {
     <div class="footer-brand"><a class="brand" href="${prefix || './'}">knowhow<span>✳</span></a><p>A place for the thinking behind the doing.</p><button class="primary" data-need onclick="if(!window.needForm){location.href='${prefix}#need'}">Share your specific need</button></div>
     <div><h4>Projects</h4><ul>${projects.slice(0, 6).map(p => `<li><a href="${prefix}projects/${p.slug}/">${esc(p.title)}</a></li>`).join('')}</ul></div>
     <div><h4>More</h4><ul>${projects.slice(6).map(p => `<li><a href="${prefix}projects/${p.slug}/">${esc(p.title)}</a></li>`).join('')}</ul></div>
-    <div><h4>Knowhow</h4><ul><li><a href="${prefix}#faq">FAQ</a></li><li><a href="${prefix}design-standard/">Design standard</a></li>${WRITING.map(([n, u]) => `<li><a href="${u}" rel="me noopener">${n}</a></li>`).join('')}<li><a href="mailto:${INBOX}">${INBOX}</a></li></ul></div>
+    <div><h4>Knowhow</h4><ul><li><a href="${prefix}design-standard/">Design standard</a></li>${WRITING.map(([n, u]) => `<li><a href="${u}" rel="me noopener">${n}</a></li>`).join('')}<li><a href="mailto:${INBOX}">${INBOX}</a></li></ul></div>
   </div>
   <div class="footer-base"><span>© ${year} Knowhow</span><span>Concepts and prototypes use fictional data unless stated.</span></div>
 </footer>`;
@@ -93,7 +93,6 @@ ${ld({ '@context': 'https://schema.org', '@graph': [
   { '@type': 'WebSite', '@id': SITE + '#website', url: SITE, name: BRAND, description: DESC, publisher: { '@id': SITE + '#org' } },
   { '@type': 'Organization', '@id': SITE + '#org', name: BRAND, url: SITE, email: INBOX, logo: SITE + 'assets/crm.png', sameAs: WRITING.map(w => w[1]) },
   { '@type': 'ItemList', name: 'Knowhow projects', itemListElement: projects.map((p, i) => ({ '@type': 'ListItem', position: i + 1, url: `${SITE}projects/${p.slug}/`, name: p.title })) },
-  { '@type': 'FAQPage', mainEntity: faqItems.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
 ] })}
 `;
 const homeFaq = `
@@ -108,7 +107,7 @@ ${faqItems.map(([q, a, p]) => `      <details><summary>${esc(q)}</summary><p>${e
 let home = fs.readFileSync(path.join(DIST, 'index.html'), 'utf8');
 home = replaceBlock(home, 'head', homeHead);
 home = replaceBlock(home, 'cards', projects.map(p => card(p)).join(''));
-home = replaceBlock(home, 'faq', homeFaq);
+home = replaceBlock(home, 'faq', '');
 home = replaceBlock(home, 'footer', footer());
 fs.writeFileSync(path.join(DIST, 'index.html'), home);
 
@@ -120,14 +119,16 @@ for (const p of projects) {
   const title = `${p.title} — ${p.category} case study | ${BRAND}`;
   const description = `${ask(p)} ${p.desc} ${counts(p) ? 'Includes ' + counts(p) + '.' : ''}`.trim();
   const others = projects.filter(o => o !== p);
-  const related = [...others.filter(o => o.category === p.category), ...others.filter(o => o.category !== p.category)].slice(0, 3);
   const sources = [['Read the full write-up', p.source], ...(p.extra || [])];
-  const shown = media.filter(m => m.type !== 'img' || m.src !== p.cover);
-  const gallery = shown.map((m, i) => m.type === 'video'
+  const renderMedia = (m, i) => m.type === 'video'
     ? `<figure class="shot-video"><video controls preload="none" playsinline poster="${esc(src(m.poster, '../../'))}" src="${esc(src(m.src, '../../'))}"></video><figcaption>${esc(m.alt)}</figcaption></figure>`
     : m.type === 'youtube'
     ? `<figure class="shot-video"><iframe src="https://www.youtube-nocookie.com/embed/${esc(m.id)}" title="${esc(m.alt)}" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe><figcaption>${esc(m.alt)}</figcaption></figure>`
-    : `<a class="shot" href="${esc(src(m.src, '../../'))}" target="_blank" rel="noopener"><img src="${esc(src(m.src, '../../'))}" alt="${esc(m.alt)}" loading="${i < 2 ? 'eager' : 'lazy'}"></a>`).join('');
+    : `<a class="shot" href="${esc(src(m.src, '../../'))}" target="_blank" rel="noopener"><img src="${esc(src(m.src, '../../'))}" alt="${esc(m.alt)}" loading="${i < 2 ? 'eager' : 'lazy'}"></a>`;
+  const topIdx = p.top || [0, 1];
+  const top = topIdx.map(i => media[i]).filter(Boolean);
+  const rest = media.filter(m => !top.includes(m));
+  const problem = p.problem || p.question, thinking = p.thinking || p.tradeoff, solution = p.solution || p.approach;
   const videoLd = media.filter(m => m.type === 'video').map(m => ({ '@type': 'VideoObject', name: m.alt, description: p.desc, thumbnailUrl: src(m.poster, SITE), contentUrl: src(m.src, SITE), uploadDate: p.date }));
   const page = `<!doctype html>
 <html lang="en">
@@ -149,11 +150,6 @@ for (const p of projects) {
 <link rel="stylesheet" href="../../style.css">
 ${ld({ '@context': 'https://schema.org', '@graph': [
   { '@type': 'Article', '@id': url + '#article', headline: p.title, description, image: [image(p), ...media.filter(m => m.type === 'img').slice(0, 5).map(m => src(m.src, SITE))], url, datePublished: p.date, articleSection: p.category, keywords: p.query, about: ask(p), author: { '@type': 'Person', jobTitle: p.role }, publisher: { '@id': SITE + '#org' }, mainEntityOfPage: url, isBasedOn: p.source, isPartOf: { '@id': SITE + '#website' }, ...(videoLd.length ? { video: videoLd } : {}) },
-  { '@type': 'FAQPage', mainEntity: [
-    { '@type': 'Question', name: ask(p), acceptedAnswer: { '@type': 'Answer', text: answer(p) } },
-    { '@type': 'Question', name: p.question, acceptedAnswer: { '@type': 'Answer', text: p.approach } },
-    { '@type': 'Question', name: `What is the main tradeoff in ${p.title.toLowerCase()}?`, acceptedAnswer: { '@type': 'Answer', text: p.tradeoff } },
-  ] },
   { '@type': 'BreadcrumbList', itemListElement: [
     { '@type': 'ListItem', position: 1, name: BRAND, item: SITE },
     { '@type': 'ListItem', position: 2, name: p.title, item: url },
@@ -167,43 +163,33 @@ ${ld({ '@context': 'https://schema.org', '@graph': [
 </header>
 <nav class="crumbs" aria-label="Breadcrumb"><a href="../../">All projects</a> / ${esc(p.category)}</nav>
 <main class="case">
-  <section class="case-hero">
-    <div>
-      <div class="eyebrow">${esc(p.category.toUpperCase())} · PROJECT</div>
-      <h1>${esc(p.title)}</h1>
-      <p class="lead">${esc(p.desc)}</p>
-      <p class="ask">Has anybody already built <span>${esc(p.headline)}</span></p>
-    </div>
-    <div class="hero-art shot"><img src="${esc(thumb(p, '../../'))}" alt="${esc(p.title)} — main screen"></div>
-  </section>
-${media.length ? `  <section class="gallery-section" aria-label="Screens and videos">
-    <div class="eyebrow">THE PROJECT · ${esc(counts({ media }).toUpperCase())}</div>
-    <div class="gallery">${gallery}</div>
-  </section>
-` : ''}  <div class="case-body">
+  <div class="case-title">
+    <div class="eyebrow">${esc(p.category.toUpperCase())} · CASE STUDY</div>
+    <h1>${esc(p.title)}</h1>
+    <p class="lead">${esc(p.desc)}</p>
+  </div>
+  ${top.length ? `<section class="top-shots${top.length === 1 ? ' one' : ''}" aria-label="Key screens">${top.map(renderMedia).join('')}</section>` : ''}
+  <div class="case-body">
     <article>
-      <h2>The question</h2>
-      <p>${esc(p.question)}</p>
-      <h2>The approach</h2>
-      <p>${esc(p.approach)}</p>
-      <h2>The tradeoff</h2>
-      <p>${esc(p.tradeoff)}</p>
-      <h2>What to take with you</h2>
-      <p>${esc(p.lesson)}</p>
+      <h2>The problem</h2>
+      <p>${esc(problem)}</p>
+      <h2>Thought process</h2>
+      <p>${esc(thinking)}</p>
+      <h2>The solution</h2>
+      <p>${esc(solution)}</p>
       <ul class="sources">${p.demo ? `<li><a href="${esc(p.demo)}" target="_blank" rel="noopener">Open the live prototype ↗</a></li>` : ''}${sources.map(([n, u]) => `<li><a href="${esc(u)}" target="_blank" rel="noopener">${esc(n)} ↗</a></li>`).join('')}</ul>
     </article>
     <aside class="aside">
-      <span class="avatar">✳</span>
-      <h3>${esc(p.role)}</h3>
-      <div class="contact"><span class="blur-avatar" aria-hidden="true"></span><span class="contact-text"><small>Built by</small><span class="blurred" aria-hidden="true">Xxxxxx Xxxxxxxx</span><span class="reveal">${LOCK} Revealed after you reach out</span></span></div><p>Building something similar? Share your specific need and the builder will get back to you.</p>
+      <div class="contact"><span class="blur-avatar" aria-hidden="true"></span><span class="contact-text"><small>Built by</small><span class="blurred" aria-hidden="true">Xxxxxx Xxxxxxxx</span><span class="reveal">${LOCK} Revealed after you reach out</span></span></div>
+      <p class="hire">Hire the right expertise, not just anyone who can build.</p>
       <a class="primary" href="${esc(mailto(p))}">Share your specific need</a>
     </aside>
   </div>
-  <section class="related">
-    <div class="eyebrow">MORE PROJECTS</div>
-    <div class="grid">${related.map(o => card(o, '../../')).join('')}</div>
+${rest.length ? `  <section class="gallery-section" aria-label="More screens and videos">
+    <div class="eyebrow">MORE SCREENS AND VIDEOS</div>
+    <div class="gallery">${rest.map((m, i) => renderMedia(m, i + 2)).join('')}</div>
   </section>
-</main>
+` : ''}</main>
 ${footer('../../').replace(/ data-need onclick="[^"]*"/, '').replace('<button class="primary">Share your specific need</button>', `<a class="primary" href="${esc(mailto(p))}">Share your specific need</a>`)}
 </body>
 </html>
