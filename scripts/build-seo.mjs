@@ -58,7 +58,7 @@ const generalFaq = [
 ];
 
 function card(p, prefix = '') {
-  return `<a class="card" href="${prefix}projects/${p.slug}/"><div class="thumb"><img src="${esc(thumb(p, prefix))}" alt="${esc(p.title)}" loading="lazy"><span class="badge">${counts(p)}</span></div><div class="card-body"><span class="tag">${esc(p.category)}</span><h3>${esc(p.title)}</h3><p>${esc(p.desc)}</p><div class="contact"><span class="blur-avatar" aria-hidden="true"></span><span class="contact-text"><small>Built by</small><span class="blurred" aria-hidden="true">Xxxxxx Xxxxxxxx</span><span class="reveal">${LOCK} Revealed after you reach out</span></span></div><p class="hire">Hire the right expertise, not just anyone who can build.</p></div></a>`;
+  return `<a class="card c-${p.category.toLowerCase().split(' ')[0]}" href="${prefix}projects/${p.slug}/"><div class="thumb"><img src="${esc(thumb(p, prefix))}" alt="${esc(p.title)}" loading="lazy"><span class="badge">${counts(p)}</span></div><div class="card-body"><span class="tag">${esc(p.category)}</span><h3>${esc(p.title)}</h3><p>${esc(p.desc)}</p><div class="contact"><span class="blur-avatar" aria-hidden="true"></span><span class="contact-text"><small>Built by</small><span class="blurred" aria-hidden="true">Xxxxxx Xxxxxxxx</span><span class="reveal">${LOCK} Revealed after you reach out</span></span></div><p class="hire">Hire the right expertise, not just anyone who can build.</p></div></a>`;
 }
 
 function footer(prefix = '') {
@@ -172,7 +172,7 @@ ${ld({ '@context': 'https://schema.org', '@graph': [
   <a class="outline" href="${esc(mailto(p))}">Share your <i class="wide-only">specific </i>need <span>→</span></a>
 </header>
 <nav class="crumbs" aria-label="Breadcrumb"><a href="../../">All projects</a> / ${esc(p.category)}</nav>
-<main class="case">
+<main class="case c-${p.category.toLowerCase().split(' ')[0]}">
   <div class="case-title">
     <div class="eyebrow">${esc(p.category.toUpperCase())} · CASE STUDY</div>
     <h1>${esc(p.title)}</h1>

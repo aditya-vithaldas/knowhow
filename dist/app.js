@@ -8,7 +8,7 @@ const LOCK = '<svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"
 const counts = p => { const s = p.media.filter(m => m.type === 'img').length, v = p.media.filter(m => m.type !== 'img').length; return [s && `${s} screen${s > 1 ? 's' : ''}`, v && `${v} video${v > 1 ? 's' : ''}`].filter(Boolean).join(' · '); };
 
 function card(p) {
-  return `<a class="card" href="projects/${p.slug}/"><div class="thumb"><img src="${esc(p.cover)}" alt="" loading="lazy"><span class="badge">${counts(p)}</span></div><div class="card-body"><span class="tag">${esc(p.category)}</span><h3>${esc(p.title)}</h3><p>${esc(p.desc)}</p><div class="contact"><span class="blur-avatar" aria-hidden="true"></span><span class="contact-text"><small>Built by</small><span class="blurred" aria-hidden="true">Xxxxxx Xxxxxxxx</span><span class="reveal">${LOCK} Revealed after you reach out</span></span></div><p class="hire">Hire the right expertise, not just anyone who can build.</p></div></a>`;
+  return `<a class="card c-${p.category.toLowerCase().split(' ')[0]}" href="projects/${p.slug}/"><div class="thumb"><img src="${esc(p.cover)}" alt="" loading="lazy"><span class="badge">${counts(p)}</span></div><div class="card-body"><span class="tag">${esc(p.category)}</span><h3>${esc(p.title)}</h3><p>${esc(p.desc)}</p><div class="contact"><span class="blur-avatar" aria-hidden="true"></span><span class="contact-text"><small>Built by</small><span class="blurred" aria-hidden="true">Xxxxxx Xxxxxxxx</span><span class="reveal">${LOCK} Revealed after you reach out</span></span></div><p class="hire">Hire the right expertise, not just anyone who can build.</p></div></a>`;
 }
 
 function render() {
