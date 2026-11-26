@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://knowhow.build/</loc><lastmod>2026-11-26</lastmod></url>
-  <url><loc>https://knowhow.build/projects/voice-commerce/</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://knowhow.build/projects/investment-agents/</loc><lastmod>2026-11-26</lastmod></url>
-  <url><loc>https://knowhow.build/projects/voice-analytics/</loc><lastmod>2026-10-06</lastmod></url>
-  <url><loc>https://knowhow.build/projects/proactive-analytics/</loc><lastmod>2026-10-15</lastmod></url>
-  <url><loc>https://knowhow.build/projects/voice-seller-onboarding/</loc><lastmod>2026-10-05</lastmod></url>
-  <url><loc>https://knowhow.build/design-standard/</loc><lastmod>2026-11-26</lastmod></url>
+  <url><loc>https://knowhow.build/</loc></url>
+  <url><loc>https://knowhow.build/projects/voice-commerce/</loc></url>
+  <url><loc>https://knowhow.build/projects/investment-agents/</loc></url>
+  <url><loc>https://knowhow.build/projects/voice-analytics/</loc></url>
+  <url><loc>https://knowhow.build/projects/proactive-analytics/</loc></url>
+  <url><loc>https://knowhow.build/projects/voice-seller-onboarding/</loc></url>
+  <url><loc>https://knowhow.build/design-standard/</loc></url>
 </urlset>

@@ -221,9 +221,9 @@ ${footer('../../').replace(/ data-need onclick="[^"]*"/, '').replace('<button cl
 const today = new Date().toISOString().slice(0, 10);
 fs.writeFileSync(path.join(DIST, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>${SITE}</loc><lastmod>${today}</lastmod></url>
-${projects.map(p => `  <url><loc>${SITE}projects/${p.slug}/</loc><lastmod>${p.date}</lastmod></url>`).join('\n')}
-  <url><loc>${SITE}design-standard/</loc><lastmod>${today}</lastmod></url>
+  <url><loc>${SITE}</loc></url>
+${projects.map(p => `  <url><loc>${SITE}projects/${p.slug}/</loc></url>`).join('\n')}
+  <url><loc>${SITE}design-standard/</loc></url>
 </urlset>
 `);
 const BOTS = ['Googlebot', 'Bingbot', 'GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-SearchBot', 'Claude-User', 'PerplexityBot', 'Google-Extended', 'Applebot'];
