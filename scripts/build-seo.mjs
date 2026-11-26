@@ -120,7 +120,8 @@ for (const p of projects) {
   const others = projects.filter(o => o !== p);
   const related = [...others.filter(o => o.category === p.category), ...others.filter(o => o.category !== p.category)].slice(0, 3);
   const sources = [['Read the full write-up', p.source], ...(p.extra || [])];
-  const gallery = media.map((m, i) => m.type === 'video'
+  const shown = p.img ? media : media.filter(m => m.type === 'video' || m.src !== p.cover);
+  const gallery = shown.map((m, i) => m.type === 'video'
     ? `<figure class="shot-video"><video controls preload="none" playsinline poster="${esc(m.poster)}" src="${esc(m.src)}"></video><figcaption>${esc(m.alt)}</figcaption></figure>`
     : `<a class="shot" href="${esc(m.src)}" target="_blank" rel="noopener"><img src="${esc(m.src)}" alt="${esc(m.alt)}" loading="${i < 2 ? 'eager' : 'lazy'}"></a>`).join('');
   const videoLd = media.filter(m => m.type === 'video').map(m => ({ '@type': 'VideoObject', name: m.alt, description: p.desc, thumbnailUrl: m.poster, contentUrl: m.src, uploadDate: p.date }));
@@ -158,7 +159,7 @@ ${ld({ '@context': 'https://schema.org', '@graph': [
 <body>
 <header>
   <a class="brand" href="../../">knowhow<span>✳</span></a>
-  <a class="outline" href="${esc(mailto(p))}">Share your specific need <span>→</span></a>
+  <a class="outline" href="${esc(mailto(p))}">Share your <i class="wide-only">specific </i>need <span>→</span></a>
 </header>
 <nav class="crumbs" aria-label="Breadcrumb"><a href="../../">All projects</a> / ${esc(p.category)}</nav>
 <main class="case">

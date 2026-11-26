@@ -27,7 +27,7 @@
 <body>
 <header>
   <a class="brand" href="./">knowhow<span>✳</span></a>
-  <button class="outline" data-need>Share your specific need <span>→</span></button>
+  <button class="outline" data-need>Share your <i class="wide-only">specific </i>need <span>→</span></button>
 </header>
 <main>
   <section class="hero">
@@ -54,13 +54,21 @@
     <a class="hero-art" id="heroLink" href="projects/crm-customer-harness/" aria-label="See this project"><img id="heroArt" src="assets/crm.png" alt=""></a>
   </section>
 
-  <section class="explore">
+  <section class="how" aria-labelledby="howTitle">
+    <h2 class="eyebrow" id="howTitle">HOW IT WORKS</h2>
+    <ol class="steps">
+      <li><a href="#projects"><span class="num">1</span><span><strong>Find the project</strong> closest to what you want to build</span></a></li>
+      <li><a href="#projects"><span class="num">2</span><span><strong>Look at the case study</strong>: the screens, the approach, the tradeoffs</span></a></li>
+      <li><button type="button" data-need><span class="num">3</span><span><strong>Reach out to the person</strong> who built it with your specific need</span></button></li>
+    </ol>
+  </section>
+
+  <section class="explore" id="projects">
     <div class="section-head">
       <div>
         <div class="eyebrow" id="sectionLabel">THE PROJECT LIBRARY</div>
-        <h2 id="sectionTitle">Start with a possibility.</h2>
+        <h2 id="sectionTitle">All projects</h2>
       </div>
-      <p id="sectionNote">Real questions. Considered approaches.<br>The thinking is the work.</p>
     </div>
     <div class="toolbar">
       <div class="filters" id="filters">

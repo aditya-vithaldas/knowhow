@@ -14,7 +14,7 @@ function card(p) {
 
 function render() {
   const q = $('search').value.toLowerCase().trim();
-  $('sectionTitle').textContent = q ? 'Find your starting point.' : 'Start with a possibility.';
+  $('sectionTitle').textContent = q ? `Projects matching “${$('search').value.trim()}”` : 'All projects';
   const list = projects.filter(p => (filter === 'All' || p.category === filter) && (!q || `${p.title} ${p.category} ${p.role} ${p.desc} ${p.query}`.toLowerCase().includes(q)));
   if ($('sort').value === 'title') list.sort((a, b) => a.title.localeCompare(b.title));
   if ($('sort').value === 'new') list.sort((a, b) => b.date.localeCompare(a.date));
