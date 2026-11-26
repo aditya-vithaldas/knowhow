@@ -332,3 +332,4 @@ mark{background:linear-gradient(transparent 58%,var(--hl-soft) 58%);color:inheri
 .card h3 mark,.step strong mark{background:linear-gradient(transparent 55%,#FFD9BC 55%)}
 .hire-once{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:22px;color:var(--hl);margin:-14px 0 18px}
 @media(max-width:800px){.hire-once{font-size:19px}}
+@media(max-width:800px){.section-head .hire-once{display:block}}
