@@ -221,7 +221,11 @@ ${projects.map(p => `  <url><loc>${SITE}projects/${p.slug}/</loc><lastmod>${p.da
   <url><loc>${SITE}design-standard/</loc><lastmod>${today}</lastmod></url>
 </urlset>
 `);
-fs.writeFileSync(path.join(DIST, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${SITE}sitemap.xml\n`);
+const BOTS = ['Googlebot', 'Bingbot', 'GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-SearchBot', 'Claude-User', 'PerplexityBot', 'Google-Extended', 'Applebot'];
+fs.writeFileSync(path.join(DIST, 'robots.txt'), `# Knowhow welcomes search engines and AI answer engines.\nUser-agent: *\nAllow: /\n\n${BOTS.map(b => `User-agent: ${b}\nAllow: /`).join('\n\n')}\n\nSitemap: ${SITE}sitemap.xml\n`);
+// IndexNow key file (Bing, Yandex and others; Bing's index feeds ChatGPT search)
+const INDEXNOW = fs.readFileSync(path.join(ROOT, 'scripts', 'indexnow-key.txt'), 'utf8').trim();
+fs.writeFileSync(path.join(DIST, `${INDEXNOW}.txt`), INDEXNOW);
 fs.writeFileSync(path.join(DIST, 'llms.txt'), `# ${BRAND}
 
 > ${DESC}
