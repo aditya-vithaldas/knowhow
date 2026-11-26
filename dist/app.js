@@ -16,3 +16,33 @@ function requestForm(name=''){open(`<span class="tag">START WITH THE QUESTION</s
 function share(){open(`<span class="tag">THE REASONING IS THE STORY</span><h2>Share your thinking.</h2><p>Capture a case study draft on this device. Explain the decisions, not just the result.</p><form id="entry"><label for="title">Project title</label><input id="title" required maxlength="120"><label for="details">The problem, your approach, and the tradeoffs</label><textarea id="details" required maxlength="5000" placeholder="What did you choose, why, and what would you do differently?"></textarea><button class="dark">Save case study draft</button></form>${submissions.length?'<h3>Your saved drafts</h3>'+submissions.map(s=>`<details><summary>${esc(s.title)}</summary><p style="white-space:pre-wrap">${esc(s.details)}</p></details>`).join(''):''}`);$('entry').onsubmit=e=>{e.preventDefault();const s={title:$('title').value.trim(),details:$('details').value.trim()};if(!s.title||!s.details)return;submissions.unshift(s);if(save())open('<span class="tag">DRAFT SAVED ON THIS DEVICE</span><h2>Your thinking has a starting point.</h2><p>Open “Share your thinking” to read your saved draft. This draft has not been published.</p>')}}
 function setView(v){view=v;filter='All';document.querySelectorAll('[data-filter]').forEach(b=>b.classList.toggle('selected',b.dataset.filter==='All'));document.querySelectorAll('[data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===v));render()}
 document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>setView(b.dataset.view));document.querySelectorAll('[data-filter]').forEach(b=>b.onclick=()=>{filter=b.dataset.filter;document.querySelectorAll('[data-filter]').forEach(x=>x.classList.toggle('selected',x===b));render()});document.querySelectorAll('[data-query]').forEach(b=>b.onclick=()=>{$('search').value=b.dataset.query;setView('projects')});$('searchForm').onsubmit=e=>{e.preventDefault();render();$('sectionTitle').scrollIntoView({behavior:'smooth',block:'center'})};$('search').oninput=render;$('sort').onchange=render;$('grid').onclick=e=>{const p=e.target.closest('[data-project]'),n=e.target.closest('[data-person]');if(p)project(+p.dataset.project);if(n)person(+n.dataset.person)};$('request').onclick=()=>requestForm();$('share').onclick=share;document.querySelector('.close').onclick=()=>$('dialog').close();$('dialog').onclick=e=>{if(e.target===$('dialog')){const r=$('dialog').getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)$('dialog').close()}};render();
+
+// Keep the opening question steady while its project changes.
+const rotatingProject = document.getElementById('rotatingProject');
+const projectQuestions = [
+  'a CRM for tracking leads on an e-commerce system?',
+  'a conversational-based onboarding experience?',
+  'an AI knowledge base that answers with sources?',
+  'a marketplace for independent makers?',
+  'a community built around meaningful conversations?'
+];
+const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+let questionIndex = 0;
+let questionTimer;
+let transitionTimer;
+function stopQuestions() { clearTimeout(questionTimer); clearTimeout(transitionTimer); rotatingProject.classList.remove('is-changing'); }
+function queueQuestion() {
+  if (motionPreference.matches || document.hidden) return;
+  questionTimer = setTimeout(() => {
+    rotatingProject.classList.add('is-changing');
+    transitionTimer = setTimeout(() => {
+      questionIndex = (questionIndex + 1) % projectQuestions.length;
+      rotatingProject.textContent = projectQuestions[questionIndex];
+      rotatingProject.classList.remove('is-changing');
+      queueQuestion();
+    }, 450);
+  }, 4800);
+}
+document.addEventListener('visibilitychange', () => { stopQuestions(); queueQuestion(); });
+motionPreference.addEventListener('change', () => { stopQuestions(); queueQuestion(); });
+queueQuestion();
