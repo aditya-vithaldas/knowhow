@@ -11,7 +11,7 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DIST = path.join(ROOT, 'dist');
-const SITE = (process.env.SITE_URL || 'https://aditya-vithaldas.github.io/knowhow/').replace(/\/?$/, '/');
+const SITE = (process.env.SITE_URL || 'https://knowhow.build/').replace(/\/?$/, '/');
 const INBOX = 'aditya@decisionos.me';
 const BRAND = 'Knowhow';
 const TITLE = 'Knowhow — Has anybody already built it? AI product case studies, prototypes and teardowns';
