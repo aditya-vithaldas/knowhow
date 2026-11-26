@@ -37,6 +37,18 @@ lead = [
       media=local("voice-analytics", ["conversation.png"], "Meridian voice analytics") + [{"type": "video", "src": "assets/media/voice-analytics/commerce-intelligence.mp4", "poster": "assets/media/voice-analytics/conversation.png", "alt": "Meridian commerce intelligence walkthrough"}]),
 ]
 
+lead.append(dict(slug="voice-seller-onboarding", title="Voice-driven seller onboarding: scan your shelf, say what to sell", category="Commerce", tags=["E-commerce"], role="Marketplace product builder",
+      headline="seller onboarding where you just say what to sell?",
+      desc="One photo of a shelf becomes item cards with prices and demand; the seller picks what to sell by voice.",
+      query="seller onboarding partner experience voice c2c listing marketplace photo shelf resale recommerce",
+      question="C2C marketplaces can’t switch on supply when they need it. People already own the items buyers want, but cataloguing each one costs more effort than a few euros is worth.",
+      tradeoff="It’s never one product at a time. A bookshelf or an electronics cabinet is a bulk job, so start from one photo. And go where the seller already is: an occasional seller won’t install an app, but will send photos in a chat.",
+      approach="Take one photo of a shelf. The AI separates the items into cards with a title, an estimated price and a demand signal. The seller just says “sell this, sell this”, or taps. The live demo covers scanning, estimates and selection; chat-app integration, publishing and pickup are next.",
+      lesson="C2C listing is mostly friction removal. Show sellers what their things are worth and the effort feels worth it.",
+      source="https://decisionos.me/projects/shelf-to-sell.html", demo="https://ecommerce-storefront.decisionos.me/partner", date="2026-10-05",
+      extra=[("Try the chat version", "https://shelf-to-sell.aditya-vithaldas.chatgpt.site/")],
+      media=local("voice-seller-onboarding", ["partner-live.png", "cover.png", "flow.png"], "Voice seller onboarding")))
+
 DA = "https://decisionaxis.substack.com/p/"
 DP = "https://delightfulaiproducts.substack.com/p/"
 
@@ -50,7 +62,7 @@ projects = [
       tradeoff="Opening the CRM to every agent risks turning it into a dumb pipe. The value has to move to context, reach and outcomes that customers can’t configure themselves.",
       lesson="Workflows and customer logic are replicable. Industry intelligence, reach and outcomes aren’t.",
       source=DA + "the-changing-face-of-crm", date="2026-11-16", media=imgs("crm", "Changing face of CRM")),
- dict(slug="seller-onboarding", title="Seller onboarding experience", category="Commerce", tags=["E-commerce"], img="onboarding", role="Product designer",
+ dict(slug="b2b-seller-onboarding", title="Onboarding new B2B sellers", category="Commerce", tags=["E-commerce"], img="onboarding", role="Product designer",
       headline="a conversational-based onboarding experience?",
       desc="Getting a new marketplace seller to their first sale: one step at a time, with help exactly where they get stuck.",
       query="onboarding b2b sellers conversational activation inline help",
@@ -159,15 +171,35 @@ projects = [
              vid("decisionaxis", "f31ad3e9-4cde-482c-a17c-763c62bae9bb", "223751729", "Ideas need incubation"),
              vid("decisionaxis", "b41e860f-23e0-4fe3-be31-1af227dd4760", "223451800", "Improving your luck surface area")]),
 ]
-order = ["voice-commerce", "investment-agents", "voice-analytics", "proactive-analytics", "seller-onboarding"]
+order = ["voice-commerce", "investment-agents", "voice-analytics", "proactive-analytics", "voice-seller-onboarding", "b2b-seller-onboarding"]
 allp = lead + projects
 projects = sorted(allp, key=lambda p: order.index(p["slug"]) if p["slug"] in order else len(order))
 for i, p in enumerate(projects):
-    p["featured"] = p["slug"] in order
+    p["featured"] = p["slug"] in order[:5]
     p.setdefault("tags", [])
+PICK = {  # slug: (cover index, top media indices) — real product screens, not title graphics
+ "voice-commerce": (0, [0, 5]), "investment-agents": (0, [0]), "voice-analytics": (0, [0, 1]),
+ "proactive-analytics": (0, [0, 1]), "voice-seller-onboarding": (0, [0, 1]), "b2b-seller-onboarding": (1, [1, 3]),
+ "crm-customer-harness": (0, [0]), "slack-teammate": (1, [0, 1]), "agentic-seller-experiences": (4, [4, 5]),
+ "software-that-consults": (3, [2, 3]), "asana-agentic-teardown": (3, [1, 3]), "todoist-agent": (3, [3, 7]),
+ "travel-agentic-cx": (8, [8, 9]), "assistant-forks-hermes": (1, [1, 2]), "animated-shorts": (0, [0, 1]),
+}
+TOPIC = {  # what someone would ask an answer engine to build
+ "voice-commerce": "a voice-first e-commerce shopping experience", "investment-agents": "AI agents for an online investment platform",
+ "voice-analytics": "voice-based analytics for e-commerce", "proactive-analytics": "proactive analytics that surface insights without being asked",
+ "voice-seller-onboarding": "a voice-driven seller onboarding experience", "b2b-seller-onboarding": "a B2B seller onboarding experience",
+ "crm-customer-harness": "an AI-native CRM", "slack-teammate": "a shared Slack AI teammate for product and analytics teams",
+ "agentic-seller-experiences": "agentic experiences for marketplace sellers", "software-that-consults": "software that consults using business context",
+ "asana-agentic-teardown": "an AI-native work management tool", "todoist-agent": "a to-do app that acts as an agent",
+ "travel-agentic-cx": "an AI travel planning agent", "assistant-forks-hermes": "a personal AI assistant", "animated-shorts": "short animated explainers",
+}
+for p in projects:
+    p["cover_i"], p["top"] = PICK.get(p["slug"], (0, [0, 1]))
+    p["topic"] = TOPIC.get(p["slug"], p["title"].lower())
 for p in projects:
     p.setdefault("name", "Aditya"); p.setdefault("initials", "A")
-    first = next((m for m in p["media"] if m["type"] in ("img", "video")), None)
+    vis = [m for m in p["media"] if m["type"] in ("img", "video")]
+    first = p["media"][p["cover_i"]] if p["media"] and p["media"][p["cover_i"]]["type"] in ("img", "video") else (vis[0] if vis else None)
     p["cover"] = (first.get("poster") or first["src"]) if first else None
 open(out, "w").write("// Project library: shared by the homepage (app.js) and scripts/build-seo.mjs.\n// Media comes from the original Substack posts.\nwindow.KNOWHOW_PROJECTS=" + json.dumps(projects, ensure_ascii=False, indent=1) + ";\n")
 print(len(projects), "projects;", sum(len(p["media"]) for p in projects), "media items")

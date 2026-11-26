@@ -41,6 +41,16 @@ const counts = p => {
   return [s && `${s} screen${s > 1 ? 's' : ''}`, v && `${v} video${v > 1 ? 's' : ''}`].filter(Boolean).join(' · ');
 };
 
+const qa = p => {
+  const problem = p.problem || p.question, thinking = p.thinking || p.tradeoff, solution = p.solution || p.approach;
+  const out = [
+    [`Has anybody already built ${p.topic}?`, `Yes. ${p.desc} ${solution}`],
+    [`How do I build ${p.topic}?`, `${thinking} ${solution}`],
+    [`Who is the right expert to build ${p.topic}?`, `Someone who has already built it. This case study comes from a ${p.role.toLowerCase()}. Hire the right expertise, not just anyone who can build: share your specific need on Knowhow and the builder’s name is shared once you reach out.`],
+  ];
+  if (/\?$/.test(problem)) out.push([problem, solution]);
+  return out;
+};
 const generalFaq = [
   ['What is Knowhow?', 'Knowhow is a library of AI product case studies, prototypes and teardowns. Each one explains the question, the approach, the tradeoff and the lesson, with every screen and video, so you can learn from work that already exists and reach the builder for your own project.'],
   ['How do I reach the person behind a project?', `Use “Share your specific need” on any project. It goes to ${INBOX}.`],
@@ -150,6 +160,7 @@ for (const p of projects) {
 <link rel="stylesheet" href="../../style.css">
 ${ld({ '@context': 'https://schema.org', '@graph': [
   { '@type': 'Article', '@id': url + '#article', headline: p.title, description, image: [image(p), ...media.filter(m => m.type === 'img').slice(0, 5).map(m => src(m.src, SITE))], url, datePublished: p.date, articleSection: p.category, keywords: p.query, about: ask(p), author: { '@type': 'Person', jobTitle: p.role }, publisher: { '@id': SITE + '#org' }, mainEntityOfPage: url, isBasedOn: p.source, isPartOf: { '@id': SITE + '#website' }, ...(videoLd.length ? { video: videoLd } : {}) },
+  { '@type': 'FAQPage', mainEntity: qa(p).map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
   { '@type': 'BreadcrumbList', itemListElement: [
     { '@type': 'ListItem', position: 1, name: BRAND, item: SITE },
     { '@type': 'ListItem', position: 2, name: p.title, item: url },
@@ -185,6 +196,10 @@ ${ld({ '@context': 'https://schema.org', '@graph': [
       <a class="primary" href="${esc(mailto(p))}">Share your specific need</a>
     </aside>
   </div>
+  <section class="case-qa" aria-labelledby="qaTitle">
+    <h2 id="qaTitle">Questions this case study answers</h2>
+${qa(p).map(([q, a]) => `    <details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('\n')}
+  </section>
 ${rest.length ? `  <section class="gallery-section" aria-label="More screens and videos">
     <div class="eyebrow">MORE SCREENS AND VIDEOS</div>
     <div class="gallery">${rest.map((m, i) => renderMedia(m, i + 2)).join('')}</div>
@@ -216,7 +231,7 @@ Knowhow answers one question: “Has anybody already built this?” Each project
 
 ## Projects
 
-${projects.map(p => `- [${p.title}](${SITE}projects/${p.slug}/): ${ask(p)} ${p.desc}`).join('\n')}
+${projects.map(p => `### [${p.title}](${SITE}projects/${p.slug}/)\n\n${p.desc}\n\n${qa(p).map(([q, a]) => `- **${q}** ${a}`).join('\n')}`).join('\n\n')}
 
 ## Writing
 

@@ -56,6 +56,8 @@ window.KNOWHOW_PROJECTS=[
    }
   ],
   "featured": true,
+  "cover_i": 0,
+  "topic": "a voice-first e-commerce shopping experience",
   "name": "Aditya",
   "initials": "A",
   "cover": "assets/media/voice-commerce/home.png"
@@ -86,6 +88,11 @@ window.KNOWHOW_PROJECTS=[
    }
   ],
   "featured": true,
+  "cover_i": 0,
+  "top": [
+   0
+  ],
+  "topic": "AI agents for an online investment platform",
   "name": "Aditya",
   "initials": "A",
   "cover": "https://substack-video.s3.amazonaws.com/video_upload/post/226584255/0440d543-0d72-4449-912b-e31d1bd78112/transcoded-00001.png"
@@ -122,6 +129,12 @@ window.KNOWHOW_PROJECTS=[
    }
   ],
   "featured": true,
+  "cover_i": 0,
+  "top": [
+   0,
+   1
+  ],
+  "topic": "voice-based analytics for e-commerce",
   "name": "Aditya",
   "initials": "A",
   "cover": "assets/media/voice-analytics/conversation.png"
@@ -167,13 +180,71 @@ window.KNOWHOW_PROJECTS=[
    }
   ],
   "featured": true,
+  "cover_i": 0,
+  "top": [
+   0,
+   1
+  ],
+  "topic": "proactive analytics that surface insights without being asked",
   "name": "Aditya",
   "initials": "A",
   "cover": "assets/media/proactive-analytics/proactive.png"
  },
  {
-  "slug": "seller-onboarding",
-  "title": "Seller onboarding experience",
+  "slug": "voice-seller-onboarding",
+  "title": "Voice-driven seller onboarding: scan your shelf, say what to sell",
+  "category": "Commerce",
+  "tags": [
+   "E-commerce"
+  ],
+  "role": "Marketplace product builder",
+  "headline": "seller onboarding where you just say what to sell?",
+  "desc": "One photo of a shelf becomes item cards with prices and demand; the seller picks what to sell by voice.",
+  "query": "seller onboarding partner experience voice c2c listing marketplace photo shelf resale recommerce",
+  "question": "C2C marketplaces can’t switch on supply when they need it. People already own the items buyers want, but cataloguing each one costs more effort than a few euros is worth.",
+  "tradeoff": "It’s never one product at a time. A bookshelf or an electronics cabinet is a bulk job, so start from one photo. And go where the seller already is: an occasional seller won’t install an app, but will send photos in a chat.",
+  "approach": "Take one photo of a shelf. The AI separates the items into cards with a title, an estimated price and a demand signal. The seller just says “sell this, sell this”, or taps. The live demo covers scanning, estimates and selection; chat-app integration, publishing and pickup are next.",
+  "lesson": "C2C listing is mostly friction removal. Show sellers what their things are worth and the effort feels worth it.",
+  "source": "https://decisionos.me/projects/shelf-to-sell.html",
+  "demo": "https://ecommerce-storefront.decisionos.me/partner",
+  "date": "2026-10-05",
+  "extra": [
+   [
+    "Try the chat version",
+    "https://shelf-to-sell.aditya-vithaldas.chatgpt.site/"
+   ]
+  ],
+  "media": [
+   {
+    "type": "img",
+    "src": "assets/media/voice-seller-onboarding/partner-live.png",
+    "alt": "Voice seller onboarding — partner live"
+   },
+   {
+    "type": "img",
+    "src": "assets/media/voice-seller-onboarding/cover.png",
+    "alt": "Voice seller onboarding — cover"
+   },
+   {
+    "type": "img",
+    "src": "assets/media/voice-seller-onboarding/flow.png",
+    "alt": "Voice seller onboarding — flow"
+   }
+  ],
+  "featured": true,
+  "cover_i": 0,
+  "top": [
+   0,
+   1
+  ],
+  "topic": "a voice-driven seller onboarding experience",
+  "name": "Aditya",
+  "initials": "A",
+  "cover": "assets/media/voice-seller-onboarding/partner-live.png"
+ },
+ {
+  "slug": "b2b-seller-onboarding",
+  "title": "Onboarding new B2B sellers",
   "category": "Commerce",
   "tags": [
    "E-commerce"
@@ -211,10 +282,16 @@ window.KNOWHOW_PROJECTS=[
     "alt": "B2B onboarding — screen 4"
    }
   ],
-  "featured": true,
+  "featured": false,
+  "cover_i": 1,
+  "top": [
+   1,
+   3
+  ],
+  "topic": "a B2B seller onboarding experience",
   "name": "Aditya",
   "initials": "A",
-  "cover": "https://substackcdn.com/image/fetch/w_1200,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F812f2a2a-d57d-4fc4-bd4b-d68eeecc5bd7_1600x840.png"
+  "cover": "https://substackcdn.com/image/fetch/w_1200,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb4554d03-7ace-44b3-8d77-49b8fefbd05e_2120x1028.png"
  },
  {
   "slug": "crm-customer-harness",
@@ -243,6 +320,11 @@ window.KNOWHOW_PROJECTS=[
    }
   ],
   "featured": false,
+  "cover_i": 0,
+  "top": [
+   0
+  ],
+  "topic": "an AI-native CRM",
   "name": "Aditya",
   "initials": "A",
   "cover": "https://substackcdn.com/image/fetch/w_1200,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1a4c69b1-0d1f-4a11-8435-8416b77af2a2_1731x909.png"
@@ -276,9 +358,15 @@ window.KNOWHOW_PROJECTS=[
   ],
   "featured": false,
   "tags": [],
+  "cover_i": 1,
+  "top": [
+   0,
+   1
+  ],
+  "topic": "a shared Slack AI teammate for product and analytics teams",
   "name": "Aditya",
   "initials": "A",
-  "cover": "https://substackcdn.com/image/fetch/w_1200,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F07d9795b-ab37-45da-beb1-524aad948f60_2752x1536.jpeg"
+  "cover": "https://substackcdn.com/image/fetch/w_1200,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3ebfb701-c8b8-4295-98bd-6b7a3edf36f3_2752x1536.jpeg"
  },
  {
   "slug": "agentic-seller-experiences",
@@ -376,9 +464,15 @@ window.KNOWHOW_PROJECTS=[
    }
   ],
   "featured": false,
+  "cover_i": 4,
+  "top": [
+   4,
+   5
+  ],
+  "topic": "agentic experiences for marketplace sellers",
   "name": "Aditya",
   "initials": "A",
-  "cover": "https://substackcdn.com/image/fetch/w_1200,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fadeb96bc-3e4b-49d5-878d-334199328a8a_1774x887.png"
+  "cover": "https://substackcdn.com/image/fetch/w_1200,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F11a3eeae-d63a-4eca-bfa6-dfad21b72bec_2880x1200.png"
  },
  {
   "slug": "software-that-consults",
@@ -423,9 +517,15 @@ window.KNOWHOW_PROJECTS=[
   ],
   "featured": false,
   "tags": [],
+  "cover_i": 3,
+  "top": [
+   2,
+   3
+  ],
+  "topic": "software that consults using business context",
   "name": "Aditya",
   "initials": "A",
-  "cover": "https://substackcdn.com/image/fetch/w_1200,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6c7edec9-8f18-46f5-8edb-51b14b51f992_1150x1052.png"
+  "cover": "https://substackcdn.com/image/fetch/w_1200,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1bc6a261-61cd-4da4-a710-286dae23b223_2048x981.png"
  },
  {
   "slug": "asana-agentic-teardown",
@@ -515,9 +615,15 @@ window.KNOWHOW_PROJECTS=[
   ],
   "featured": false,
   "tags": [],
+  "cover_i": 3,
+  "top": [
+   1,
+   3
+  ],
+  "topic": "an AI-native work management tool",
   "name": "Aditya",
   "initials": "A",
-  "cover": "https://substackcdn.com/image/fetch/w_1200,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F24ace235-dbaa-4172-b30c-cc9726bac87e_1536x1024.png"
+  "cover": "https://substackcdn.com/image/fetch/w_1200,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4fff4355-95ae-4f55-863a-a587cbf338d8_1700x1212.png"
  },
  {
   "slug": "todoist-agent",
@@ -587,9 +693,15 @@ window.KNOWHOW_PROJECTS=[
   ],
   "featured": false,
   "tags": [],
+  "cover_i": 3,
+  "top": [
+   3,
+   7
+  ],
+  "topic": "a to-do app that acts as an agent",
   "name": "Aditya",
   "initials": "A",
-  "cover": "https://substackcdn.com/image/fetch/w_1200,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7d877063-0116-4b15-9b6f-d7e25f4530b1_1920x1080.jpeg"
+  "cover": "https://substackcdn.com/image/fetch/w_1200,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F78b5fe61-2bcb-4333-8d47-c75cdf78203c_3380x1770.jpeg"
  },
  {
   "slug": "travel-agentic-cx",
@@ -666,9 +778,15 @@ window.KNOWHOW_PROJECTS=[
    }
   ],
   "featured": false,
+  "cover_i": 8,
+  "top": [
+   8,
+   9
+  ],
+  "topic": "an AI travel planning agent",
   "name": "Aditya",
   "initials": "A",
-  "cover": "https://substackcdn.com/image/fetch/w_1200,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd9e85ba2-ec9c-439d-8d2d-82f02eed0605_2172x724.png"
+  "cover": "https://substackcdn.com/image/fetch/w_1200,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F249e312e-00fe-4ccd-af38-7e8f6005ecae_440x525.png"
  },
  {
   "slug": "assistant-forks-hermes",
@@ -704,9 +822,15 @@ window.KNOWHOW_PROJECTS=[
   ],
   "featured": false,
   "tags": [],
+  "cover_i": 1,
+  "top": [
+   1,
+   2
+  ],
+  "topic": "a personal AI assistant",
   "name": "Aditya",
   "initials": "A",
-  "cover": "https://substackcdn.com/image/fetch/w_1200,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6c5dbbbc-6636-4b00-a601-0d2cc8fa36c1_1983x793.jpeg"
+  "cover": "https://substackcdn.com/image/fetch/w_1200,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fce389b7c-aea9-4965-b416-4e2c31db8710_744x744.jpeg"
  },
  {
   "slug": "animated-shorts",
@@ -756,6 +880,12 @@ window.KNOWHOW_PROJECTS=[
   ],
   "featured": false,
   "tags": [],
+  "cover_i": 0,
+  "top": [
+   0,
+   1
+  ],
+  "topic": "short animated explainers",
   "name": "Aditya",
   "initials": "A",
   "cover": "https://substack-video.s3.amazonaws.com/video_upload/post/222896401/1d189dbf-b774-4ef1-b994-759d2b95a284/transcoded-00001.png"
