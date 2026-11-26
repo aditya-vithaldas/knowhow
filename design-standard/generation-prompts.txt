@@ -1,0 +1,21 @@
+Generated using the built-in image_gen tool. Five separate transparent-background illustration requests.
+
+Shared prompt:
+Use case: stylized-concept. Asset: one illustration for Knowhow, a thoughtful project discovery website. Create a scratchy hand-drawn editorial illustration: loose navy colored-pencil and dry-ink contours, visible crosshatching, slightly imperfect repeated lines, restrained translucent pale-blue wash and periwinkle accents. Sophisticated, warm, human, easy to recognize. Palette strictly navy #243550, blue #537FE7, periwinkle #7972CE and very pale blue #EAF1FC. No green. Transparent background, isolated centered composition, generous padding, square canvas. Flat drawing, no glossy 3D, no stock clipart, no gradients, no words or letters. Use moderately rounded UI panels. Subject:
+
+crm.png:
+A small e-commerce lead CRM: three staggered pipeline columns with contact cards, a tiny shopping bag and one pencil connecting a lead to a completed sale. A legible compact conceptual sketch, not a detailed screenshot.
+
+onboarding.png:
+A conversational onboarding experience: three friendly overlapping chat bubbles, one choice card with two pill-shaped options, a small profile circle and a tiny welcome sparkle. Clear compact silhouette.
+
+knowledge.png:
+An AI team knowledge base: a hand-drawn open notebook beside a search panel, three source slips and a small answer bubble linked to the sources. Clear compact silhouette.
+
+marketplace.png:
+A marketplace for independent makers: three small product cards showing a ceramic mug, a lamp and a woven tote bag, grouped beneath a simple shop awning. Clear compact silhouette.
+
+subscriptions.png:
+A subscription dashboard: a rounded interface panel with three recurring-payment rows, a small calendar with a looping recurrence symbol and a simple bar chart. Clear compact silhouette.
+
+Design note: Generated results introduce a few extra people/character details. These are first-pass style explorations, not locked production artwork. Standard uses slightly deeper action blue and text violet for readable interface text; pastel image pigments remain unchanged.
